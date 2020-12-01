@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NLayer_Workflow.DataAccess\NLayer_Workflow.DataAccess.csproj" />
+    <ProjectReference Include="..\NLayer_Workflow.Entities\NLayer_Workflow.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
