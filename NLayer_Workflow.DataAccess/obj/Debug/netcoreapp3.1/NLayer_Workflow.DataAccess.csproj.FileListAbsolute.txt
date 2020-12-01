@@ -8,10 +8,10 @@ C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAcc
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.Entities.pdb
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.Core.pdb
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.csprojAssemblyReference.cache
-C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.AssemblyInfoInputs.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.AssemblyInfo.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.csproj.CopyComplete
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.pdb
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.genruntimeconfig.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.csproj.CoreCompileInputs.cache

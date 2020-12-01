@@ -11,7 +11,8 @@ namespace NLayer_Workflow.Entities.Concrete
         public bool Status { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        public int UserId { get; set; } //Bir İlişki kuruldu
-        public User User { get; set; } //Navigation Property
+        //User ile ilişki
+        public int? AppUserId { get; set; } //Nullable tanımlama nedenimiz görev kullanıcıdan önce oluşturulabilir
+        public AppUser AppUser { get; set; }
     }
 }
