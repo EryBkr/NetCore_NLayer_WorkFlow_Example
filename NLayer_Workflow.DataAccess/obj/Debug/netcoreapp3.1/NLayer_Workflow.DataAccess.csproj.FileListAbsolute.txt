@@ -1,0 +1,17 @@
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.deps.json
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.runtimeconfig.json
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.runtimeconfig.dev.json
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.Core.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.Entities.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.Entities.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\bin\Debug\netcoreapp3.1\NLayer_Workflow.Core.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.csprojAssemblyReference.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.AssemblyInfo.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.csproj.CopyComplete
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.DataAccess\obj\Debug\netcoreapp3.1\NLayer_Workflow.DataAccess.genruntimeconfig.cache

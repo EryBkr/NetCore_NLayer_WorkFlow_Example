@@ -4,6 +4,69 @@
     "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.DataAccess\\NLayer_Workflow.DataAccess.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Core\\NLayer_Workflow.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Core\\NLayer_Workflow.Core.csproj",
+        "projectName": "NLayer_Workflow.Core",
+        "projectPath": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Core\\NLayer_Workflow.Core.csproj",
+        "packagesPath": "C:\\Users\\Blackerback\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Blackerback\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.DataAccess\\NLayer_Workflow.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -31,7 +94,94 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Entities\\NLayer_Workflow.Entities.csproj": {
+                "projectPath": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Entities\\NLayer_Workflow.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Entities\\NLayer_Workflow.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Entities\\NLayer_Workflow.Entities.csproj",
+        "projectName": "NLayer_Workflow.Entities",
+        "projectPath": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Entities\\NLayer_Workflow.Entities.csproj",
+        "packagesPath": "C:\\Users\\Blackerback\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Blackerback\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Core\\NLayer_Workflow.Core.csproj": {
+                "projectPath": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Core\\NLayer_Workflow.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

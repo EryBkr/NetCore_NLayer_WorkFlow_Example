@@ -1,7 +1,5 @@
 ﻿using NLayer_Workflow.Core.Entities.Abstract;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NLayer_Workflow.Entities.Concrete
 {
@@ -10,6 +8,7 @@ namespace NLayer_Workflow.Entities.Concrete
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool Status { get; set; }
         public DateTime CreatedDate { get; set; }
 
         public int UserId { get; set; } //Bir İlişki kuruldu

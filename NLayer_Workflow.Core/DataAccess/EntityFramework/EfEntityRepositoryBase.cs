@@ -2,10 +2,8 @@
 using NLayer_Workflow.Core.DataAccess.Abstract;
 using NLayer_Workflow.Core.Entities.Abstract;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace NLayer_Workflow.Core.DataAccess.EntityFramework
 {
@@ -39,11 +37,11 @@ namespace NLayer_Workflow.Core.DataAccess.EntityFramework
             }
         }
 
-        public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
+        public IQueryable<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var context = new TContext())
             {
-                return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList(); //gilter verilemişse bütün kayıtları getirsin
+                return filter == null ? context.Set<TEntity>() : context.Set<TEntity>().Where(filter); //filter verilemişse bütün kayıtları getirsin
             }
         }
 

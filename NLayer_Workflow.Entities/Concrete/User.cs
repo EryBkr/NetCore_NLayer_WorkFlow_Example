@@ -1,7 +1,5 @@
 ﻿using NLayer_Workflow.Core.Entities.Abstract;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NLayer_Workflow.Entities.Concrete
 {

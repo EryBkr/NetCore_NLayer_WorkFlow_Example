@@ -1,0 +1,12 @@
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\bin\Debug\netcoreapp3.1\NLayer_Workflow.Entities.deps.json
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\bin\Debug\netcoreapp3.1\NLayer_Workflow.Entities.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\bin\Debug\netcoreapp3.1\NLayer_Workflow.Entities.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\bin\Debug\netcoreapp3.1\NLayer_Workflow.Core.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\bin\Debug\netcoreapp3.1\NLayer_Workflow.Core.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\obj\Debug\netcoreapp3.1\NLayer_Workflow.Entities.csprojAssemblyReference.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\obj\Debug\netcoreapp3.1\NLayer_Workflow.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\obj\Debug\netcoreapp3.1\NLayer_Workflow.Entities.AssemblyInfoInputs.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\obj\Debug\netcoreapp3.1\NLayer_Workflow.Entities.AssemblyInfo.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\obj\Debug\netcoreapp3.1\NLayer_Workflow.Entities.csproj.CopyComplete
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\obj\Debug\netcoreapp3.1\NLayer_Workflow.Entities.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Entities\obj\Debug\netcoreapp3.1\NLayer_Workflow.Entities.pdb
