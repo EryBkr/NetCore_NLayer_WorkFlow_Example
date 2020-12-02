@@ -13,6 +13,8 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework.Mapping
 
             builder.Property(i => i.Name).HasMaxLength(200);
             builder.Property(i => i.Description).HasColumnType("ntext");
+
+            builder.HasOne(i => i.Urgency).WithMany(i => i.Works).HasForeignKey(i => i.UrgencyId);//Nullable olmadığı için UrgencyId Bu tablodan kayıt silinmesini istemiyoruz
         }
     }
 }
