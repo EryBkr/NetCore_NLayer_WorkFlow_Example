@@ -42,7 +42,17 @@ namespace NLayer_Workflow.Web
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();//Default Route Added
+                endpoints.MapControllerRoute
+                (
+                    name: "areas", //Area URL patternini oluþturduk
+                    pattern: "{area}/{controller=Home}/{action=Index}/{id?}"
+                    );
+
+                endpoints.MapControllerRoute
+                (
+                    name:"default",
+                    pattern:"{controller=Home}/{action=Index}/{id?}"
+                    );
             });
         }
     }
