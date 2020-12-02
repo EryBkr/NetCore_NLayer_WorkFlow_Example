@@ -38,7 +38,7 @@ namespace NLayer_Workflow.Bussiness.Concrete
         public List<Work> GetList(Expression<Func<Work, bool>> filter = null)
         {
             var works = _workDal.GetList(filter);
-            return works.ToList();
+            return works;
         }
 
         public void Update(Work entity)

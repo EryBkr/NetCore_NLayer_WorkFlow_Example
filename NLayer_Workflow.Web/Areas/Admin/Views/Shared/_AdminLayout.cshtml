@@ -27,7 +27,7 @@
             <div class="sidebar-heading">Admin Panel </div>
             <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action active">Görev İşlemleri</a>
-                <a href="#" class="list-group-item list-group-item-action">Shortcuts</a>
+                <a asp-action="Index" asp-controller="Urgency" class="list-group-item list-group-item-action">Aciliyet İşlemleri</a>
                 <a href="#" class="list-group-item list-group-item-action">Overview</a>
                 <a href="#" class="list-group-item list-group-item-action">Events</a>
                 <a href="#" class="list-group-item list-group-item-action">Profile</a>
@@ -57,6 +57,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="~/js/jquery/jquery.min.js"></script>
     <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    @RenderSection("Scripts", required: false)
 
     <!-- Menu Toggle Script -->
     <script>

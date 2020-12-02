@@ -36,7 +36,7 @@ namespace NLayer_Workflow.Bussiness.Concrete
 
         public List<Report> GetList(Expression<Func<Report, bool>> filter = null)
         {
-            var reports = _reportDal.GetList(filter).ToList();
+            var reports = _reportDal.GetList(filter);
             return reports;
         }
 

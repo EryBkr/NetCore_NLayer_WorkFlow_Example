@@ -36,7 +36,7 @@ namespace NLayer_Workflow.Bussiness.Concrete
 
         public List<Urgency> GetList(Expression<Func<Urgency, bool>> filter = null)
         {
-            var urgencies = _urgencyDal.GetList(filter).ToList();
+            var urgencies = _urgencyDal.GetList(filter);
             return urgencies;
         }
 

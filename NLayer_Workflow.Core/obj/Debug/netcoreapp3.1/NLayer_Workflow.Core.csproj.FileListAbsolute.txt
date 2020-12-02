@@ -6,3 +6,4 @@ C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Core\ob
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Core\obj\Debug\netcoreapp3.1\NLayer_Workflow.Core.AssemblyInfo.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Core\obj\Debug\netcoreapp3.1\NLayer_Workflow.Core.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Core\obj\Debug\netcoreapp3.1\NLayer_Workflow.Core.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Core\obj\Debug\netcoreapp3.1\NLayer_Workflow.Core.csprojAssemblyReference.cache
