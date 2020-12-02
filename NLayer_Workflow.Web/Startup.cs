@@ -7,6 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NLayer_Workflow.Bussiness.Abstract;
+using NLayer_Workflow.Bussiness.Concrete;
+using NLayer_Workflow.Bussiness.Extensions.DIResolvers;
+using NLayer_Workflow.DataAccess.Abstract;
+using NLayer_Workflow.DataAccess.Concrete.EntityFramework;
+using NLayer_Workflow.DataAccess.Concrete.EntityFramework.Contexts;
+using NLayer_Workflow.Entities.Concrete;
 
 namespace NLayer_Workflow.Web
 {
@@ -17,6 +24,9 @@ namespace NLayer_Workflow.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews(); //Added MVC
+            services.AddContainerWithDependencies();//Dependency Injection
+            services.AddDbContext<MyDataContext>();//Db Context eklendi
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MyDataContext>();//Identity Eklendi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
