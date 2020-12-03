@@ -42,5 +42,23 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
             _workService.Add(new Work {Name=model.Name,Description=model.Description,UrgencyId=model.UrgencyId });
             return RedirectToAction("Index");
         }
+
+        public IActionResult WorkUpdate(int id)
+        {
+            var work = _workService.Get(i=>i.Id==id);
+            var urgencies = _urgencyService.GetList();
+
+            var workModel = new WorkUpdateModel { Id = work.Id, Description = work.Description, Name = work.Name, UrgencyId = work.UrgencyId,UrgencyList= new SelectList(urgencies, "Id", "Description",work.UrgencyId)}; //Son parametrede seçili olması gerek option ı verdik
+
+            return View(workModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult WorkUpdate(WorkUpdateModel model)
+        {
+            _workService.Update(new Work {Id=model.Id,UrgencyId=model.UrgencyId,Description=model.Description,Name=model.Name});
+            return RedirectToAction("Index");
+        }
     }
 }
