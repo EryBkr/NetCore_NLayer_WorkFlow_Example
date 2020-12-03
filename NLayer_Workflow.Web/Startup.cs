@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLayer_Workflow.Bussiness.Extensions.DIResolvers;
 using NLayer_Workflow.DataAccess.Concrete.EntityFramework.Contexts;
 using NLayer_Workflow.Entities.Concrete;
 using NLayer_Workflow.Web.Filters;
+using NLayer_Workflow.Web.Functions;
 
 namespace NLayer_Workflow.Web
 {
@@ -16,18 +18,20 @@ namespace NLayer_Workflow.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews(opt=> {opt.Filters.Add(typeof(GlobalModelStateValidatorAttribute)); }); //Added MVC and Global Model State Kontrolü
-            services.AddContainerWithDependencies();//Dependency Injection
+            services.AddContainerWithDependencies();//Dependency Injection Custom olarak eklendi
             services.AddDbContext<MyDataContext>();//Db Context eklendi
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MyDataContext>();//Identity Eklendi
+            services.AddIdentityConfigurations();//Identity Custom olarak eklendi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,UserManager<AppUser> userManager,RoleManager<AppRole> roleManager)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            IdentityInitilaizer.SeedData(userManager,roleManager).Wait();//Seed Data sýnýfýmýz uygulandý.Wait metodumuz async metodumuzu çalýþtýrmamýzý saðladý
 
             app.UseRouting();
             app.UseStaticFiles();//wwwroot dýþarýya açýldý
