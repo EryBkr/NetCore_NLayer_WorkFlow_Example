@@ -1,0 +1,41 @@
+﻿@model List<WorkListModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model.Count != 0)
+{
+    <a class="btn btn-info btn-sm" asp-action="AddWork" asp-controller="Work">Add Work</a>
+    <table>
+        <tr>
+            <th>Ad</th>
+            <th>Acıklama</th>
+            <th>Durum</th>
+            <th>Urgency</th>
+            <th>Islem</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Status</td>
+                <td>@item.UrgencyId</td>
+                <td>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <div class="p-3 text-center mt-3">
+        <p class="lead">
+            Herhangi bir görev bulunamadı
+        </p>
+        <a class="btn btn-info btn-sm" asp-action="AddWork" asp-controller="Work">Add Work</a>
+    </div>
+}
+

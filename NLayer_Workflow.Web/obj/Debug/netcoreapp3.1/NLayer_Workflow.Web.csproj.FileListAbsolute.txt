@@ -171,3 +171,4 @@ C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\NLayer_Workflow.Web.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Urgency\AddUrgency.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Urgency\UpdateUrgency.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Work\Index.cshtml.g.cs

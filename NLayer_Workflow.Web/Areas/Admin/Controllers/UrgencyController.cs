@@ -17,6 +17,7 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         public UrgencyController(IUrgencyService _urgencyService)
         {
             this._urgencyService = _urgencyService;
+           
         }
 
         public IActionResult Index()
