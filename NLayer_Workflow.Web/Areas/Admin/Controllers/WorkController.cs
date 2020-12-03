@@ -60,5 +60,12 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
             _workService.Update(new Work {Id=model.Id,UrgencyId=model.UrgencyId,Description=model.Description,Name=model.Name});
             return RedirectToAction("Index");
         }
+
+        public JsonResult WorkDelete(int id)
+        {
+            var work = _workService.Get(i=>i.Id==id);
+            _workService.Delete(work);
+            return Json(null);
+        }
     }
 }

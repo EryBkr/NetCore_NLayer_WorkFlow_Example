@@ -21,10 +21,9 @@
                 <td>@item.Description</td>
                 <td>@item.CreatedDate.ToString("D")</td>
                 <td>@item.Urgency.Description</td>
-                <td>@item.Urgency.Id</td>
                 <td>
                     <a class="btn btn-sm btn-primary" asp-action="WorkUpdate" asp-controller="Work" asp-route-id="@item.Id">Update</a>
-                    <a href="#"></a>
+                    <button type="button" data-toggle="modal" data-delete="@item.Id" data-target="#deleteScreen" class="btn btn-sm btn-danger">Delete</button>
                 </td>
             </tr>
         }
@@ -38,5 +37,58 @@ else
         </p>
         <a class="btn btn-info btn-sm" asp-action="AddWork" asp-controller="Work">Add Work</a>
     </div>
+}
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteScreen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Silmek istediğinizden emin misiniz ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+                <button id="btnDelete" type="button" class="btn btn-primary">Sil</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#deleteScreen").on("show.bs.modal", function (event) {
+                let triggerElement = $(event.relatedTarget);
+                let id = triggerElement.data("delete");
+
+                $("#btnDelete").click(function ()
+                {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Admin/Work/WorkDelete",
+                        data: { id: id },
+                        dataType: "json",
+                        contentType: "application/json;",
+                        success: function () {
+                            alert("İşlem Başarılı");
+                            window.location.reload();
+                        },
+                        error: function (error) {
+                            alert(error.statusText);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
 }
 
