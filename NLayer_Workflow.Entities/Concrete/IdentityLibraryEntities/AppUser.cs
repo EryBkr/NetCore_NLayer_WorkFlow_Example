@@ -10,6 +10,7 @@ namespace NLayer_Workflow.Entities.Concrete
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Picture { get; set; }
 
         public List<Work> Works { get; set; } //Work tablosu ile çok ilişki
     }

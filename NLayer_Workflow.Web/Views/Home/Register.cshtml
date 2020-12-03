@@ -1,0 +1,48 @@
+﻿@model AppUserAddViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+    <form asp-action="Register" method="post" class="w-50 mx-auto my-3 p-3 shadow">
+        <h4>Kayıt Ol</h4>
+        <div class="form-group">
+            <label asp-for="UserName"></label>
+            <span class="text-danger" asp-validation-for="UserName"></span>
+            <input class="form-control" type="text" asp-for="UserName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <span class="text-danger" asp-validation-for="Password"></span>
+            <input class="form-control" type="password" asp-for="Password" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword"></label>
+            <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+            <input class="form-control" type="password" asp-for="ConfirmPassword" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <span class="text-danger" asp-validation-for="Email"></span>
+            <input class="form-control" type="email" asp-for="Email" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <span class="text-danger" asp-validation-for="Name"></span>
+            <input class="form-control" type="text" asp-for="Name" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Surname"></label>
+            <span class="text-danger" asp-validation-for="Surname"></span>
+            <input class="form-control" type="text" asp-for="Surname" />
+        </div>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <button type="submit" class="btn btn-success btn-sm">Register</button>
+        <a class="btn btn-sm btn-warning" asp-action="Index">Vazgeç</a>
+    </form>
+
+@section Scripts{
+    <script src="~/js/jquery/jq-unobtrusive/jquery.validate.min.js"></script>
+    <script src="~/js/jquery/jq-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
