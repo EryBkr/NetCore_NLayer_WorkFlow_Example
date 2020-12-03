@@ -1,0 +1,30 @@
+﻿@model WorkAddViewModel
+@{
+    ViewData["Title"] = "AddWork";
+}
+
+    <form asp-action="AddWork" method="post" class="w-75 mx-auto p-3">
+        <div class="form-group">
+            <label>Ad</label>
+            <span class="text-danger" asp-validation-for="Name"></span>
+            <input class="form-control" type="text" asp-for="Name" />
+        </div>
+        <div class="form-group">
+            <label>Acıklama</label>
+            <span class="text-danger" asp-validation-for="Description"></span>
+            <textarea class="form-control" asp-for="Description" ></textarea>
+        </div>
+        <div class="form-group">
+            <label>Urgency Seçiniz</label>
+            <span class="text-danger" asp-validation-for="UrgencyId"></span>
+            <select asp-for="UrgencyId" class="form-control" asp-items="@Model.UrgencyList">
+                <option hidden value="-1">Seçiniz...</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-info btn-sm">Save</button>
+    </form>
+
+@section Scripts{
+    <script src="~/js/jquery/jq-unobtrusive/jquery.validate.min.js"></script>
+    <script src="~/js/jquery/jq-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

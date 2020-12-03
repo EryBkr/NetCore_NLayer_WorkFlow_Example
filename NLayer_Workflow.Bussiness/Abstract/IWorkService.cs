@@ -8,5 +8,6 @@ namespace NLayer_Workflow.Bussiness.Abstract
 {
     public interface IWorkService : IGenericService<Work>
     {
+        List<Work> GetListWorkWithUrgency();
     }
 }

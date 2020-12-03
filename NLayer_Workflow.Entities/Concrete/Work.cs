@@ -10,7 +10,7 @@ namespace NLayer_Workflow.Entities.Concrete
         public string Name { get; set; }
         public string Description { get; set; }
         public bool Status { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         //User ile ilişki
         public int? AppUserId { get; set; } //Nullable tanımlama nedenimiz görev kullanıcıdan önce oluşturulabilir
