@@ -17,7 +17,7 @@ namespace NLayer_Workflow.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews(opt=> {opt.Filters.Add(typeof(GlobalModelStateValidatorAttribute)); }); //Added MVC and Global Model State Kontrolü
+            services.AddControllersWithViews(opt => { opt.Filters.Add(typeof(GlobalModelStateValidatorAttribute)); }); //Added MVC and Global Model State Kontrolü
             services.AddContainerWithDependencies();//Dependency Injection Custom olarak eklendi
             services.AddDbContext<MyDataContext>();//Db Context eklendi
             services.AddIdentityConfigurations();//Identity Custom olarak eklendi
@@ -25,14 +25,14 @@ namespace NLayer_Workflow.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,UserManager<AppUser> userManager,RoleManager<AppRole> roleManager)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            IdentityInitilaizer.SeedData(userManager,roleManager).Wait();//Seed Data sýnýfýmýz uygulandý.Wait metodumuz async metodumuzu çalýþtýrmamýzý saðladý
+            IdentityInitilaizer.SeedData(userManager, roleManager).Wait();//Seed Data sýnýfýmýz uygulandý.Wait metodumuz async metodumuzu çalýþtýrmamýzý saðladý
 
             app.UseRouting();
             app.UseStaticFiles();//wwwroot dýþarýya açýldý
@@ -47,9 +47,9 @@ namespace NLayer_Workflow.Web
                     );
 
                 endpoints.MapControllerRoute
-                (
-                    name:"default",
-                    pattern:"{controller=Home}/{action=Index}/{id?}"
+                    (
+                    name: "default",
+                    pattern: "{controller=Home}/{action=LogIn}/{id?}"
                     );
             });
         }

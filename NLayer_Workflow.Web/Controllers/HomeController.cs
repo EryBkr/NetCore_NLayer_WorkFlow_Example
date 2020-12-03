@@ -19,7 +19,14 @@ namespace NLayer_Workflow.Web.Controllers
             this.userManager = userManager;
         }
 
-        public IActionResult Index()
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult LogIn(LoginModel model)
         {
             return View();
         }
