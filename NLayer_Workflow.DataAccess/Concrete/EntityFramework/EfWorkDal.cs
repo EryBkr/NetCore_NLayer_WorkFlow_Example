@@ -10,6 +10,15 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
 {
     public class EfWorkDal : EfEntityRepositoryBase<MyDataContext, Work>, IWorkDal //Generic yapımı ve interface'mi implemente ettim
     {
+        public List<Work> GetAllIncludedTable()
+        {
+            using (var context = new MyDataContext())
+            {
+                var works = context.Works.Include(i => i.Urgency).Include(i=>i.Reports).Include(i=>i.AppUser).Where(i => i.Status == false).OrderByDescending(i => i.CreatedDate).ToList(); //Eager Loading işlemi yaptık ve ilişkili olduğu tablolarla beraber getirdik
+                return works;
+            }
+        }
+
         public List<Work> GetListWorkWithUrgency()
         {
             using (var context=new MyDataContext())

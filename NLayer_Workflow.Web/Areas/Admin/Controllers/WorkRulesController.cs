@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NLayer_Workflow.Bussiness.Abstract;
+using NLayer_Workflow.Web.Areas.Admin.Models;
 
 namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
@@ -20,8 +21,18 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var users = appUserService.GetListWithoutAdmin();
-            return View();
+            var works = workService.GetAllIncludedTable().Select(i=>new GetWorkAllListModel 
+            {
+                Id=i.Id,
+                AppUser=i.AppUser,
+                CreatedDate=i.CreatedDate,
+                Description=i.Description,
+                Name=i.Name,
+                Reports=i.Reports,
+                 Urgency=i.Urgency
+            }).ToList();
+
+            return View(works);
         }
     }
 }

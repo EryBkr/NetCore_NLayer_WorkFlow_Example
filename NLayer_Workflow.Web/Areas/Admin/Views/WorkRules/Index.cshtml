@@ -1,7 +1,46 @@
-﻿
+﻿@model List<GetWorkAllListModel>
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@if (Model.Count != 0)
+{
+    <table class="table table hover table-sm mt-2">
+        <tr>
+            <th>Isım</th>
+            <th>Acıklama</th>
+            <th>Olusturulma Tarihi</th>
+            <th>Görevli</th>
+            <th>Aciliyet Durumu</th>
+        </tr>
+        @foreach (var work in Model)
+        {
+            <tr>
+                <td>@work.Name</td>
+                <td>@work.Description</td>
+                <td>@work.CreatedDate.ToString("D")</td>
+                <td>
+                    @{
+                        if (work.AppUser == null)
+                        {
+                            <span class="badge badge-danger">Personel Atanmadı</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-success">@work.AppUser.UserName çalışıyor</span>
+                        }
+                    }
+                </td>
+                <td>@work.Urgency.Description</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <div class="my-2 text-center lead">
+        Görev bulunamadı
+    </div>
+}
 

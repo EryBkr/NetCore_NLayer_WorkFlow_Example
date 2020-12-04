@@ -35,6 +35,12 @@ namespace NLayer_Workflow.Bussiness.Concrete
             return work;
         }
 
+        public List<Work> GetAllIncludedTable()
+        {
+            var works = _workDal.GetAllIncludedTable();
+            return works;
+        }
+
         public List<Work> GetList(Expression<Func<Work, bool>> filter = null)
         {
             var works = _workDal.GetList(filter);
