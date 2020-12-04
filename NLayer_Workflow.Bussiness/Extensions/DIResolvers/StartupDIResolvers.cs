@@ -22,6 +22,9 @@ namespace NLayer_Workflow.Bussiness.Extensions.DIResolvers
 
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<IReportDal, EfReportDal>();
+
+            services.AddScoped<IAppUserService, AppUserService>();
+            services.AddScoped<IAppUserDal, EfUserDal>();
         }
     }
 }
