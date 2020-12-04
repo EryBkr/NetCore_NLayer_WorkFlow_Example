@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,12 @@ namespace NLayer_Workflow.Web.Controllers
     public class HomeController : Controller
     {
         private readonly UserManager<AppUser> userManager;
+        private readonly SignInManager<AppUser> signInManager;
 
-        public HomeController(UserManager<AppUser> userManager)
+        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
         {
             this.userManager = userManager;
+            this.signInManager = signInManager;
         }
 
         public IActionResult LogIn()
@@ -26,9 +29,26 @@ namespace NLayer_Workflow.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult LogIn(LoginModel model)
+        public async Task<IActionResult> LogIn(LoginModel model)
         {
-            return View();
+            var user=await userManager.FindByNameAsync(model.UserName);
+            if (user!=null)
+            {
+                var result=await signInManager.PasswordSignInAsync(user.UserName,model.Password,model.RememberMe,false);
+                if (result.Succeeded)
+                {
+                    var roles=await userManager.GetRolesAsync(user); //Kullanıcının rolleri alındı
+                    if (roles.Contains("Admin"))
+                        return RedirectToAction("Index", "Home", new { area = "Admin" }); //Admin rolü varsa admin area ya yönlendirdik
+                    else
+                        return RedirectToAction("Index", "Home", new { area = "Member" }); //Yoksa Member Area ya yönlendirdik
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("","Kullanıcı Adı veya Şifre Hatalı"); //Suistimal edilmemesi için ifadeyi geniş yazdık
+            }
+            return View(model);
         }
 
         public IActionResult Register()

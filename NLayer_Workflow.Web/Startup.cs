@@ -21,7 +21,7 @@ namespace NLayer_Workflow.Web
             services.AddContainerWithDependencies();//Dependency Injection Custom olarak eklendi
             services.AddDbContext<MyDataContext>();//Db Context eklendi
             services.AddIdentityConfigurations();//Identity Custom olarak eklendi
-            services.CookieConfigurations("/Home/Index"); //Cookie Ayarý ve login path bilgisi verildi
+            services.CookieConfigurations("/Home/LogIn"); //Cookie Ayarý ve login path bilgisi verildi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +35,10 @@ namespace NLayer_Workflow.Web
             IdentityInitilaizer.SeedData(userManager, roleManager).Wait();//Seed Data sýnýfýmýz uygulandý.Wait metodumuz async metodumuzu çalýþtýrmamýzý saðladý
 
             app.UseRouting();
+            //Uyelik ve yetkilendirme
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseStaticFiles();//wwwroot dýþarýya açýldý
 
 

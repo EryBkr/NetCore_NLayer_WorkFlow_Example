@@ -7,8 +7,8 @@ using NLayer_Workflow.Bussiness.Abstract;
 
 namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
-    [Area("Admin")] //Area olduğunu belirttik
-    public class HomeController : Controller
+   
+    public class HomeController : BaseController
     {
        
         public IActionResult Index()

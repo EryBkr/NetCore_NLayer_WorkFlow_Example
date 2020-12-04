@@ -4,10 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NLayer_Workflow.Web.Areas.Member.Controllers
+namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
-   
-    public class HomeController : BaseController
+    public class WorkRulesController : BaseController
     {
         public IActionResult Index()
         {

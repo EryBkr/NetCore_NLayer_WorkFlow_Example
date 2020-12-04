@@ -13,5 +13,7 @@ namespace NLayer_Workflow.Web.Models
 
         [Required(ErrorMessage ="Parola Boş geçilemez")]
         public string Password { get; set; }
+
+        public bool RememberMe { get; set; }
     }
 }

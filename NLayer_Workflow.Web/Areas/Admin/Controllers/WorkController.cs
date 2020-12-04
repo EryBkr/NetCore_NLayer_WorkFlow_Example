@@ -10,8 +10,7 @@ using NLayer_Workflow.Web.Areas.Admin.Models;
 
 namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class WorkController : Controller
+    public class WorkController : BaseController
     {
         private readonly IWorkService _workService;
         private readonly IUrgencyService _urgencyService;
