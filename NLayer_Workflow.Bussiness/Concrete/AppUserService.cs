@@ -21,5 +21,11 @@ namespace NLayer_Workflow.Bussiness.Concrete
             var users = appUserDal.GetListWithoutAdmin();
             return users;
         }
+
+        List<AppUser> IAppUserService.GetListWithoutAdminInPagination(out int totalPage, string search, int activePage)
+        {
+            var users = appUserDal.GetListWithoutAdminInPagination(out totalPage, search, activePage);
+            return users;
+        }
     }
 }

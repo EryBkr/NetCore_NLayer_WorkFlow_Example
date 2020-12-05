@@ -1,0 +1,84 @@
+﻿@model WorkDetail
+@{
+    ViewData["Title"] = "WorkDetail";
+}
+
+    <input type="hidden" id="workId" data-work="@Model.Id" />
+<div class="row my-3">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center lead">Görev Bilgileri</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">
+                    @Model.Description
+                </p>
+                <p class="card-text">
+                    <strong>Aciliyet Durumu</strong> <span class="badge badge-info">@Model.UrgencyDescription</span>
+                </p>
+                <small class="text-muted font-italic">@((DateTime.Now-Model.CreatedDate).Days.ToString()) days ago</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="userSearch" placeholder="search">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="users"></div>
+            </div>
+            <div class="col-md-12">
+                <nav aria-label="Page navigation example">
+                    <ul id="pageList" class="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var getUsers = function (activePage = 1) {
+                let search = $("#userSearch").val();
+                var pageCount;
+                var workId = $("#workId").data("work");
+                $.ajax({
+                    dataType: "html",
+                    type: "GET",
+                    url: "/Admin/WorkRules/Partial_Paginatin_User",
+                    data: {
+                        search: search,
+                        activePage: activePage,
+                        WorkId:workId
+                    },
+                    success: function (data) {
+                        $("#users").html(data),
+                       pageCount=Number($("#pageCount").data("pagecount"))
+                    },
+                    complete: function () {
+                        $("#pageList").html("");
+                        for (var i = 0; i < pageCount; i++) {
+                            $("#pageList").append('<li class="page-item"><button class="page-link">'+(i+1)+'</button></li>');
+                        };
+                        $(".page-item").on("click", function () {
+                            var activePage = Number($(this).text());
+                            getUsers(activePage);
+                        });
+                    }
+
+                });
+            };
+            getUsers();
+            $("#userSearch").on("keyup", i => getUsers());
+        });
+
+
+    </script>
+}
+

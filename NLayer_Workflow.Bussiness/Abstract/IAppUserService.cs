@@ -9,5 +9,6 @@ namespace NLayer_Workflow.Bussiness.Abstract
     public interface IAppUserService
     {
         List<AppUser> GetListWithoutAdmin();
+        List<AppUser> GetListWithoutAdminInPagination(out int totalPage, string search, int activePage = 1);
     }
 }

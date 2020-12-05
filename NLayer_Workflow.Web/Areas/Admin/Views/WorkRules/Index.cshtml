@@ -10,9 +10,11 @@
         <tr>
             <th>Isım</th>
             <th>Acıklama</th>
-            <th>Olusturulma Tarihi</th>
-            <th>Görevli</th>
-            <th>Aciliyet Durumu</th>
+            <th>Tarih</th>
+            <th>Personel</th>
+            <th>Aciliyet</th>
+            <th>Rapor</th>
+            <th>Islem</th>
         </tr>
         @foreach (var work in Model)
         {
@@ -33,6 +35,19 @@
                     }
                 </td>
                 <td>@work.Urgency.Description</td>
+                <td>@work.Reports.Count</td>
+                <td>
+                    @{
+                        if (work.AppUser == null)
+                        {
+                            <a class="btn btn-sm btn-warning" asp-route-id="@work.Id" asp-action="WorkDetail">Personel Ata</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-sm btn-info" asp-route-id="@work.Id" asp-action="WorkDetail">Detay Goster</a>
+                        }
+                    }
+                </td>
             </tr>
         }
     </table>

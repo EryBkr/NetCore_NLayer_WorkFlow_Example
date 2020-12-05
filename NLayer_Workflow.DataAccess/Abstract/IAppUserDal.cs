@@ -9,5 +9,7 @@ namespace NLayer_Workflow.DataAccess.Abstract
     public interface IAppUserDal
     {
         List<AppUser> GetListWithoutAdmin();
+        List<AppUser> GetListWithoutAdminInPagination(out int totalPage,string search,int activePage=1); //Sayfalama yapacağız
+
     }
 }

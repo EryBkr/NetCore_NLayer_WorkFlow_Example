@@ -10,5 +10,7 @@ namespace NLayer_Workflow.Bussiness.Abstract
     {
         List<Work> GetListWorkWithUrgency();
         List<Work> GetAllIncludedTable();
+        Work GetWorkDetailWithUrgency(int id);
+        List<Work> GetWithUser(int userId);
     }
 }

@@ -53,6 +53,18 @@ namespace NLayer_Workflow.Bussiness.Concrete
             return works;
         }
 
+        public List<Work> GetWithUser(int userId)
+        {
+            var works = _workDal.GetWithUser(userId);
+            return works;
+        }
+
+        public Work GetWorkDetailWithUrgency(int id)
+        {
+            var work = _workDal.GetWorkDetailWithUrgency(id);
+            return work;
+        }
+
         public void Update(Work entity)
         {
             _workDal.Update(entity);

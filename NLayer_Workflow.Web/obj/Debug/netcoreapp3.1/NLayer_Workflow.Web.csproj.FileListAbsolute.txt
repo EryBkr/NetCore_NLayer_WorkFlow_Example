@@ -148,6 +148,7 @@ C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\NLayer_Workflow.Web.TagHelpers.output.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\NLayer_Workflow.Web.RazorCoreGenerate.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\Partial_Users.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Urgency\AddUrgency.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Urgency\Index.cshtml.g.cs
@@ -176,3 +177,5 @@ C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\NLayer_Workflow.Web.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\NLayer_Workflow.Web.pdb
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\NLayer_Workflow.Web.genruntimeconfig.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\WorkRules\WorkDetail.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\WorkRules\UserToWork.cshtml.g.cs
