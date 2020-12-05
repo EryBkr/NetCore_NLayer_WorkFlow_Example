@@ -79,6 +79,12 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult WorkDetailWithReport(int id)
+        {
+            var work = workService.GetWithReportsById(id);
+            return View(work);
+        }
+
         public IActionResult Partial_Paginatin_User(string search,int activePage,int WorkId) //Kullanıcı tablosunu partial olarak oluşturduk
         {
             int totalPage;

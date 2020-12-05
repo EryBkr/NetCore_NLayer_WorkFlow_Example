@@ -10,5 +10,6 @@ namespace NLayer_Workflow.DataAccess.Abstract
         List<Work> GetAllIncludedTable();
         Work GetWorkDetailWithUrgency(int id);
         List<Work> GetWithUser(int userId);
+        Work GetWithReportsById(int id);
     }
 }
