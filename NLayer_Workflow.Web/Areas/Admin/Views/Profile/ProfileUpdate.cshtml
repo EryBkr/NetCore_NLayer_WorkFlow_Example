@@ -1,0 +1,53 @@
+﻿@model UpdateAdminViewModel
+@{
+    ViewData["Title"] = "ProfileUpdate";
+}
+
+<form asp-action="ProfileUpdate" class="w-75 mx-auto p-3" method="post" enctype="multipart/form-data">
+    <input type="hidden"  asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Surname"></label>
+        <input class="form-control" asp-for="Surname" />
+        <span asp-validation-for="Surname"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <h6 class="text-center">Mevcut Resim:</h6>
+                <img class="img-thumbnail" src="~/img/@Model.Picture" alt="Alternate Text" />
+            </div>
+            <div id="picturePreview" class="col-md-8" style="display:none;">
+                <h6 class="text-center">Seçtiğiniz Resim:</h6>
+                <img id="selectedImg" alt="Alternate Text" />
+            </div>
+            <div class="col-md-12">
+                <label>Resim Seç</label>
+                <input id="picture" type="file" class="form-control-file" name="Resim"/>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block"><i class="fas fa-edit mr-2"></i>Update</button>
+</form>
+
+@section Scripts{ 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#picture").change(function (event) {
+                var url = URL.createObjectURL(event.target.files[0]);
+                $("#picturePreview").show();
+                $("#selectedImg").attr("src", url);
+            });
+        });
+    </script>
+}
+
