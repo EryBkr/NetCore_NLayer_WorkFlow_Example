@@ -16,12 +16,14 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         private readonly IAppUserService appUserService;
         private readonly IWorkService workService;
         private readonly UserManager<AppUser> userManager;
+        private readonly IFileService fileService;
 
-        public WorkRulesController(IAppUserService appUserService, IWorkService workService, UserManager<AppUser> userManager)
+        public WorkRulesController(IAppUserService appUserService, IWorkService workService, UserManager<AppUser> userManager, IFileService fileService)
         {
             this.appUserService = appUserService;
             this.workService = workService;
             this.userManager = userManager;
+            this.fileService = fileService;
         }
 
         public IActionResult Index()
@@ -97,6 +99,19 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 
 
             return PartialView("Partial_Users", model);
+        }
+
+        public FileContentResult CreateExcel(int id)
+        {
+            var reports = workService.GetWithReportsById(id).Reports;
+            return File(fileService.ExecuteExcelf(reports), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", Guid.NewGuid()+".xlsx");
+        }
+
+        public IActionResult CreatePDF(int id)
+        {
+            var reports = workService.GetWithReportsById(id).Reports;
+            var path = fileService.ExecutePdf(reports);
+            return File(path,"application/pdf",Guid.NewGuid()+".pdf");
         }
     }
 }

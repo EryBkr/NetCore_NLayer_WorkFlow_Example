@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="5.4.2" />
+    <PackageReference Include="FastMember" Version="1.5.0" />
+    <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NLayer_Workflow.DataAccess\NLayer_Workflow.DataAccess.csproj" />
     <ProjectReference Include="..\NLayer_Workflow.Entities\NLayer_Workflow.Entities.csproj" />
   </ItemGroup>
