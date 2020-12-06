@@ -7,7 +7,7 @@
 
 @if (Model != null && Model.Count != 0)
 {
-    <a class="btn btn-sm btn-primary my-2" asp-action="AddUrgency" asp-controller="Urgency">Yeni Aciliyet Ekle</a>
+    <a class="btn btn-sm btn-primary my-2" asp-action="AddUrgency" asp-controller="Urgency"><i class="fas fa-plus mr-2"></i>Yeni Aciliyet Ekle</a>
     <table class="table table-sm table-hover">
         <thead>
             <tr>
@@ -20,7 +20,7 @@
             {
                 <tr>
                     <td>@item.Description</td>
-                    <td><a class="btn btn-sm btn-warning" asp-action="UpdateUrgency" asp-controller="Urgency" asp-route-id="@item.Id">Update</a></td>
+                    <td><a class="btn btn-sm btn-warning" asp-action="UpdateUrgency" asp-controller="Urgency" asp-route-id="@item.Id"><i class="fas fa-edit mr-2"></i>Update</a></td>
                 </tr>
             }
         </tbody>
@@ -31,6 +31,6 @@ else
 {
 <div class="text-center mt-4">
     <p class="lead"> Sistemde Kayıtlı Aciliyet Durumu Bulunamadı</p>
-    <a class="btn btn-sm btn-primary my-2" asp-action="AddUrgency" asp-controller="Urgency">Yeni Aciliyet Ekle</a>
+    <a class="btn btn-sm btn-primary my-2" asp-action="AddUrgency" asp-controller="Urgency"><i class="fas fa-plus mr-2"></i>Yeni Aciliyet Ekle</a>
 </div>
 }

@@ -4,9 +4,10 @@
     ViewData["Title"] = "WorkDetailWithReport";
 }
 
-@if (Model.Reports.Count()>0)
+@if (Model.Reports.Count() > 0)
 {
-    <a  class="btn btn-sm btn-success my-2" asp-action="CreateExcel">Excel Dosyası Oluştur</a>
+    <a class="btn btn-sm btn-success my-2" asp-action="CreateExcel"><i class="far fa-file-excel mr-2"></i>Excel</a>
+    <a class="btn btn-sm btn-primary my-2" asp-action="CreatePDF"><i class="far fa-file-pdf mr-2"></i>PDF</a>
     <table class="table table-bordered table-striped table-hover table-sm ">
         <thead>
             <tr>
@@ -17,15 +18,15 @@
                 <th>Detay</th>
             </tr>
         </thead>
-       <tbody>
-         @foreach (var item in Model.Reports)
-         {
-             <tr>
-                 <td>@item.Description</td>
-                 <td>@item.Detail</td>
-             </tr>
-         }
-       </tbody>
+        <tbody>
+            @foreach (var item in Model.Reports)
+            {
+                <tr>
+                    <td>@item.Description</td>
+                    <td>@item.Detail</td>
+                </tr>
+            }
+        </tbody>
     </table>
 }
 else

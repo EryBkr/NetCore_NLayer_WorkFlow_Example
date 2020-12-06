@@ -16,7 +16,7 @@
                                 <p class="card-text"><getWorksAppUserId user-id="@item.Id"></getWorksAppUserId></p>
                                 <p class="card-text"><span class="badge badge-info">Member</span></p>
                                 <p class="card-text"><small class="text-muted">@item.Email</small></p>
-                                <a class="btn btn-sm btn-primary" asp-action="UserToWork" asp-route-WorkId="@Model.WorkId" asp-route-UserId="@item.Id">Görevlendir</a>
+                                <a class="btn btn-sm btn-primary" asp-action="UserToWork" asp-route-WorkId="@Model.WorkId" asp-route-UserId="@item.Id"><i class="fas fa-plus mr-2"></i>Görevlendir</a>
                             </div>
                         </div>
                     </div>

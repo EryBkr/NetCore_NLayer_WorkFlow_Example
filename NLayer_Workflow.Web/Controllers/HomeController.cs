@@ -22,6 +22,7 @@ namespace NLayer_Workflow.Web.Controllers
             this.signInManager = signInManager;
         }
 
+        [HttpGet]
         public IActionResult LogIn()
         {
             return View();
@@ -51,6 +52,8 @@ namespace NLayer_Workflow.Web.Controllers
             return View(model);
         }
 
+
+        [HttpGet]
         public IActionResult Register()
         {
             return View();

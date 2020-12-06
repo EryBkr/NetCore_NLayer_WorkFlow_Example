@@ -5,7 +5,7 @@
 
 @if (Model.Count != 0)
 {
-    <a class="btn btn-info btn-sm my-1" asp-action="AddWork" asp-controller="Work">Add Work</a>
+    <a class="btn btn-info btn-sm my-1" asp-action="AddWork" asp-controller="Work"><i class="fas fa-plus mr-2"></i>Add Work</a>
     <table class="table table-sm table-hover">
         <tr>
             <th>Ad</th>
@@ -22,8 +22,8 @@
                 <td>@item.CreatedDate.ToString("D")</td>
                 <td>@item.Urgency.Description</td>
                 <td>
-                    <a class="btn btn-sm btn-primary" asp-action="WorkUpdate" asp-controller="Work" asp-route-id="@item.Id">Update</a>
-                    <button type="button" data-toggle="modal" data-delete="@item.Id" data-target="#deleteScreen" class="btn btn-sm btn-danger">Delete</button>
+                    <a class="btn btn-sm btn-primary" asp-action="WorkUpdate" asp-controller="Work" asp-route-id="@item.Id"><i class="fas fa-edit mr-1"></i>Update</a>
+                    <button type="button" data-toggle="modal" data-delete="@item.Id" data-target="#deleteScreen" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt mr-1"></i> Delete</button>
                 </td>
             </tr>
         }
@@ -35,7 +35,7 @@ else
         <p class="lead">
             Herhangi bir görev bulunamadı
         </p>
-        <a class="btn btn-info btn-sm" asp-action="AddWork" asp-controller="Work">Add Work</a>
+        <a class="btn btn-info btn-sm" asp-action="AddWork" asp-controller="Work"><i class="fas fa-plus mr-1"></i>Add Work</a>
     </div>
 }
 

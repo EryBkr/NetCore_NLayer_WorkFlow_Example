@@ -40,11 +40,11 @@
                     @{
                         if (work.AppUser == null)
                         {
-                            <a class="btn btn-sm btn-warning" asp-route-id="@work.Id" asp-action="WorkDetail">Personel Ata</a>
+                            <a class="btn btn-sm btn-warning" asp-route-id="@work.Id" asp-action="WorkDetail"><i class="fas fa-plus mr-2"></i>Personel Ata</a>
                         }
                         else
                         {
-                            <a class="btn btn-sm btn-info" asp-route-id="@work.Id" asp-action="WorkDetailWithReport">Detay Goster</a>
+                            <a class="btn btn-sm btn-info" asp-route-id="@work.Id" asp-action="WorkDetailWithReport"><i class="fas fa-info-circle mr-2"></i>Detay Goster</a>
                         }
                     }
                 </td>
