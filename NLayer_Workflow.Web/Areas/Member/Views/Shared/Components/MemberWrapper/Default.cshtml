@@ -1,0 +1,18 @@
+﻿@model NLayer_Workflow.Entities.Concrete.AppUser
+@{
+    var controllerName = this.ViewContext.RouteData.Values["controller"].ToString().ToLower();
+}
+
+<div class="border-right border-danger" id="sidebar-wrapper">
+    <div class="sidebar-heading">
+        <img class="w-100 img-thumbnail" style="height:10rem!important;" src="~/img/@Model.Picture" alt="Alternate Text" />
+        <h4>@Model.UserName <span class="badge badge-info ml-2"><small>Member</small></span></h4>
+    </div>
+    <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-briefcase mr-2"></i>Gelen İş Emirleri</a>
+        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-check-double mr-2"></i>Tamamlanan İşler</a>
+        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-bell mr-2"></i>Bildirimler</a>
+        <a asp-action="ProfileUpdate" asp-controller="Profile" class="list-group-item list-group-item-action @(controllerName=="profile"?"active":"")"><i class="fas fa-user mr-2"></i>Profil</a>
+        <a asp-area="" asp-action="LogOut" asp-controller="Home" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt mr-2"></i>Çıkış Yap</a>
+    </div>
+</div>

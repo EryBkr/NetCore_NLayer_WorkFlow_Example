@@ -6,7 +6,7 @@
 <div class="border-right border-danger" id="sidebar-wrapper">
     <div class="sidebar-heading">
         <img class="w-100 img-thumbnail" style="height:10rem!important;" src="~/img/@Model.Picture" alt="Alternate Text" />
-        <h4>@Model.Name (Admin)</h4>
+        <h4>@Model.Name <span class="badge badge-success ml-2"><small>Admin</small></span></h4>
     </div>
     <div class="list-group list-group-flush">
         <a asp-action="Index" asp-controller="Work" class="list-group-item list-group-item-action @(controllerName=="work"?"active":"")"><i class="fas fa-tasks mr-1"></i> Görev İşlemleri</a>

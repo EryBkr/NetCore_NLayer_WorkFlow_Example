@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,47 +17,38 @@
     <!-- Custom styles for this template -->
     <link href="~/lib/bootswatch/bootstrap.min.css" rel="stylesheet" />
 
+    <link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet" />
+
 </head>
 
 <body>
 
     <div class="d-flex" id="wrapper">
-
         <!-- Sidebar -->
-        <div class="border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Member Panel </div>
-            <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action active">Görev İşlemleri</a>
-                <a href="#" class="list-group-item list-group-item-action">Shortcuts</a>
-                <a href="#" class="list-group-item list-group-item-action">Overview</a>
-                <a href="#" class="list-group-item list-group-item-action">Events</a>
-                <a href="#" class="list-group-item list-group-item-action">Profile</a>
-                <a href="#" class="list-group-item list-group-item-action">Status</a>
-            </div>
-        </div>
+        @await Component.InvokeAsync("MemberWrapper")
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-
+            <nav class="navbar navbar-expand-lg navbar-light border-danger  border-bottom">
+                <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-hamburger mr-2"></i> Menu</button>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
-
             <div class="container-fluid">
                 @RenderBody()
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-
     </div>
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
     <script src="~/js/jquery/jquery.min.js"></script>
     <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/fontawesome/js/all.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
 
     <!-- Menu Toggle Script -->
     <script>
@@ -64,7 +56,6 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });</script>
-
 </body>
 
 </html>
