@@ -96,5 +96,11 @@ namespace NLayer_Workflow.Web.Controllers
             }
             return View(model);
         }
+
+        public async  Task<IActionResult> LogOut()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("LogIn");
+        }
     }
 }
