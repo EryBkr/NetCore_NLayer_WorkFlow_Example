@@ -1,0 +1,26 @@
+﻿@model AddReportViewModel
+@{
+    ViewData["Title"] = "AddReport";
+}
+    <h4 class="text-center mt-2">@Model.WorkName 'e ait Rapor</h4>
+    <form asp-action="AddReport" class="w-75 shadow mx-auto p-3 mt-3" method="post">
+        <input type="hidden" asp-for="WorkId" />
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Detail"></label>
+            <textarea asp-for="Detail" class="form-control" ></textarea>
+            <span class="text-danger" asp-validation-for="Detail"></span>
+        </div>
+        <button class="btn btn-success btn-sm btn-block" type="submit">Add Report</button>
+    </form>
+
+
+
+@section Scripts{
+    <script src="~/js/jquery/jq-unobtrusive/jquery.validate.min.js"></script>
+    <script src="~/js/jquery/jq-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

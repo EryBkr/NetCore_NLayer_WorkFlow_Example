@@ -3,8 +3,10 @@ using NLayer_Workflow.Core.DataAccess.EntityFramework;
 using NLayer_Workflow.DataAccess.Abstract;
 using NLayer_Workflow.DataAccess.Concrete.EntityFramework.Contexts;
 using NLayer_Workflow.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
 {
@@ -15,6 +17,15 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
             using (var context = new MyDataContext())
             {
                 var works = context.Works.Include(i => i.Urgency).Include(i => i.Reports).Include(i => i.AppUser).Where(i => i.Status == false).OrderByDescending(i => i.CreatedDate).ToList(); //Eager Loading işlemi yaptık ve ilişkili olduğu tablolarla beraber getirdik
+                return works;
+            }
+        }
+
+        public List<Work> GetAllIncludedTable(Expression<Func<Work, bool>> filter)
+        {
+            using (var context = new MyDataContext())
+            {
+                var works = context.Works.Include(i => i.Urgency).Include(i => i.Reports).Include(i => i.AppUser).Where(filter).OrderByDescending(i => i.CreatedDate).ToList(); //Eager Loading işlemi yaptık ve ilişkili olduğu tablolarla beraber getirdik
                 return works;
             }
         }

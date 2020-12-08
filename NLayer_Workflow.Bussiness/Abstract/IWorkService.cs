@@ -2,6 +2,7 @@
 using NLayer_Workflow.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace NLayer_Workflow.Bussiness.Abstract
@@ -13,5 +14,6 @@ namespace NLayer_Workflow.Bussiness.Abstract
         Work GetWorkDetailWithUrgency(int id);
         List<Work> GetWithUser(int userId);
         Work GetWithReportsById(int id);
+        public List<Work> GetAllIncludedTable(Expression<Func<Work, bool>> filter);
     }
 }

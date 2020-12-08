@@ -4,7 +4,7 @@
 }
 
 <form asp-action="ProfileUpdate" class="w-75 mx-auto p-3" method="post" enctype="multipart/form-data">
-    <input type="hidden"  asp-for="Id" />
+    <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label asp-for="Name"></label>
         <input class="form-control" asp-for="Name" />
@@ -32,14 +32,14 @@
             </div>
             <div class="col-md-12">
                 <label>Resim Seç</label>
-                <input id="picture" type="file" class="form-control-file" name="Resim"/>
+                <input id="picture" type="file" class="form-control-file" name="Resim" />
             </div>
         </div>
     </div>
     <button type="submit" class="btn btn-success btn-block"><i class="fas fa-edit mr-2"></i>Update</button>
 </form>
 
-@section Scripts{ 
+@section Scripts{
     <script type="text/javascript">
         $(document).ready(function () {
             $("#picture").change(function (event) {
@@ -49,5 +49,8 @@
             });
         });
     </script>
+
+    <script src="~/js/jquery/jq-unobtrusive/jquery.validate.min.js"></script>
+    <script src="~/js/jquery/jq-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
 
