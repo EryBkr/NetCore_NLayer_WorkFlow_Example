@@ -19,8 +19,15 @@ using NLayer_Workflow.Web.Areas.Member;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Member\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Web.Areas.Member.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f1d78e86fa71d0c9b18c31c0291706a83ad91718", @"/Areas/Member/Views/Shared/_MemberLayout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0161492c7a2da8e1d59f9feed8e04286d21bb5fc", @"/Areas/Member/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"61357920b6ccf34e8947ab92987ff64cf944cfec", @"/Areas/Member/Views/_ViewImports.cshtml")]
     public class Areas_Member_Views_Shared__MemberLayout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/AdminTheme/css/simple-sidebar.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -57,7 +64,7 @@ using NLayer_Workflow.Web.Areas.Member;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad917186011", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad917186253", async() => {
                 WriteLiteral("\r\n\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <meta name=\"description\"");
                 BeginWriteAttribute("content", " content=\"", 197, "\"", 207, 0);
                 EndWriteAttribute();
@@ -65,7 +72,7 @@ using NLayer_Workflow.Web.Areas.Member;
                 BeginWriteAttribute("content", " content=\"", 234, "\"", 244, 0);
                 EndWriteAttribute();
                 WriteLiteral(">\r\n\r\n    <title>Simple Sidebar - Start Bootstrap Template</title>\r\n\r\n    <!-- Bootstrap core CSS -->\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f1d78e86fa71d0c9b18c31c0291706a83ad917186891", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f1d78e86fa71d0c9b18c31c0291706a83ad917187133", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -80,7 +87,7 @@ using NLayer_Workflow.Web.Areas.Member;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n\r\n    <!-- Custom styles for this template -->\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f1d78e86fa71d0c9b18c31c0291706a83ad917188121", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f1d78e86fa71d0c9b18c31c0291706a83ad917188363", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -95,7 +102,7 @@ using NLayer_Workflow.Web.Areas.Member;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f1d78e86fa71d0c9b18c31c0291706a83ad917189303", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f1d78e86fa71d0c9b18c31c0291706a83ad917189545", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -122,7 +129,7 @@ using NLayer_Workflow.Web.Areas.Member;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad9171811193", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad9171811435", async() => {
                 WriteLiteral("\r\n\r\n    <div class=\"d-flex\" id=\"wrapper\">\r\n        <!-- Sidebar -->\r\n        ");
 #nullable restore
 #line 28 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Member\Views\Shared\_MemberLayout.cshtml"
@@ -152,7 +159,7 @@ using NLayer_Workflow.Web.Areas.Member;
 #line hidden
 #nullable disable
                 WriteLiteral("\r\n            </div>\r\n        </div>\r\n        <!-- /#page-content-wrapper -->\r\n    </div>\r\n    <!-- /#wrapper -->\r\n    <!-- Bootstrap core JavaScript -->\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad9171813013", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad9171813255", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -166,7 +173,7 @@ using NLayer_Workflow.Web.Areas.Member;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad9171814113", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad9171814355", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -180,7 +187,7 @@ using NLayer_Workflow.Web.Areas.Member;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad9171815213", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1d78e86fa71d0c9b18c31c0291706a83ad9171815455", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

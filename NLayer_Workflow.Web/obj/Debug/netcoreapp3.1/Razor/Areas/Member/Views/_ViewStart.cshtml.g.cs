@@ -19,8 +19,15 @@ using NLayer_Workflow.Web.Areas.Member;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Member\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Web.Areas.Member.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bbcec5b7bd503b2a866b703595f3238e909b7ffb", @"/Areas/Member/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0161492c7a2da8e1d59f9feed8e04286d21bb5fc", @"/Areas/Member/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"61357920b6ccf34e8947ab92987ff64cf944cfec", @"/Areas/Member/Views/_ViewImports.cshtml")]
     public class Areas_Member_Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
