@@ -8,5 +8,6 @@ namespace NLayer_Workflow.Bussiness.Abstract
 {
     public interface IReportService : IGenericService<Report>
     {
+        Report GetWithWorkById(int id);
     }
 }

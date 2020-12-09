@@ -8,5 +8,6 @@ namespace NLayer_Workflow.DataAccess.Abstract
 {
     public interface IReportDal : IEntityRepository<Report> //Database ile iletişime geçecek soyut yapılarımızı oluşturduk
     {
+        Report GetWithWorkById(int id);
     }
 }

@@ -16,6 +16,7 @@
             <p class="text-right">
                 @if (item.Reports.Count > 0)
                 {
+                    <a class="btn btn-secondary btn-sm" asp-action="AddReport" asp-route-id="@item.Id"><i class="fas fa-plus-circle mr-2"></i>Rapor Ekle</a>
                     <a class="btn btn-light btn-sm" data-toggle="collapse" href="#collapseExample-@item.Id" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Raporlara Git <i class="fas fa-sort-down ml-2"></i> <span class="badge badge-dark ml-2">@item.Reports.Count</span>
                     </a>
@@ -41,7 +42,7 @@
                             <td>@report.Description</td>
                             <td>@report.Detail</td>
                             <td>
-                                <a class="btn btn-warning btn-warning" asp-action="UpdateReport"><i class="fas fa-edit mr-2"></i>Düzenle</a>
+                                <a class="btn btn-warning btn-warning" asp-action="UpdateReport" asp-route-id="@report.Id"><i class="fas fa-edit mr-2"></i>Düzenle</a>
                             </td>
                         </tr>
                     }

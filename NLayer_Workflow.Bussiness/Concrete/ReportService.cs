@@ -40,6 +40,12 @@ namespace NLayer_Workflow.Bussiness.Concrete
             return reports;
         }
 
+        public Report GetWithWorkById(int id)
+        {
+            var report = _reportDal.GetWithWorkById(id);
+            return report;
+        }
+
         public void Update(Report entity)
         {
             _reportDal.Update(entity);

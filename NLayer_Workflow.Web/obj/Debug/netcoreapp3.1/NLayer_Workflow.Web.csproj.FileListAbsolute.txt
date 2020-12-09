@@ -210,3 +210,4 @@ C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\NLayer_Workflow.Web.genruntimeconfig.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Member\Views\WorkRules\Index.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Member\Views\WorkRules\AddReport.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Member\Views\WorkRules\UpdateReport.cshtml.g.cs

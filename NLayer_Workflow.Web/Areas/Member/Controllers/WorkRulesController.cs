@@ -65,5 +65,27 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult UpdateReport(int id)
+        {
+            var report = reportService.GetWithWorkById(id);
+            var model = new UpdateReportViewModel();
+
+            model.Id = report.Id;
+            model.Description = report.Description;
+            model.Detail = report.Detail;
+            model.WorkId = report.WorkId;
+            
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateReport(UpdateReportViewModel model)
+        {
+            reportService.Update(new Report {Detail=model.Detail,Id=model.Id,Description=model.Description,WorkId=model.WorkId});
+            return RedirectToAction("Index");
+        }
     }
 }
