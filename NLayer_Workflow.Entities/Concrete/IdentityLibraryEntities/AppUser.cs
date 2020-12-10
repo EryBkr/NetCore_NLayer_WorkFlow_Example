@@ -13,5 +13,7 @@ namespace NLayer_Workflow.Entities.Concrete
         public string Picture { get; set; } = "defaultProfile.png"; //Default bir resim ataması yaptık
 
         public List<Work> Works { get; set; } //Work tablosu ile çok ilişki
+
+        public List<Notification> Notifications { get; set; } //Notify tablosu ile bire çok ilişki
     }
 }

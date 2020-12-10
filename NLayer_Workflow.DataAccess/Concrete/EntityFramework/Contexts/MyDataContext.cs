@@ -20,11 +20,13 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework.Contexts
             modelBuilder.ApplyConfiguration(new AppUserMap());
             modelBuilder.ApplyConfiguration(new UrgencyMap());
             modelBuilder.ApplyConfiguration(new ReportMap());
+            modelBuilder.ApplyConfiguration(new NotifyMap());
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Work> Works { get; set; }
         public DbSet<Urgency> Urgencies { get; set; }
         public DbSet<Report> Reports { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
     }
 }
