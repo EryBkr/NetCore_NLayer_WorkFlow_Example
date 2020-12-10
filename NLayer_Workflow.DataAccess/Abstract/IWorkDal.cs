@@ -14,5 +14,6 @@ namespace NLayer_Workflow.DataAccess.Abstract
         Work GetWorkDetailWithUrgency(int id);
         List<Work> GetWithUser(int userId);
         Work GetWithReportsById(int id);
+        List<Work> GetWorksWithPagination(out int totalPage, int activePage,int userId);
     }
 }

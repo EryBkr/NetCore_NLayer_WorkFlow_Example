@@ -15,5 +15,6 @@ namespace NLayer_Workflow.Bussiness.Abstract
         List<Work> GetWithUser(int userId);
         Work GetWithReportsById(int id);
         public List<Work> GetAllIncludedTable(Expression<Func<Work, bool>> filter);
+        List<Work> GetWorksWithPagination(out int totalPage, int userId,int activePage=1);
     }
 }

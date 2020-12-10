@@ -77,6 +77,12 @@ namespace NLayer_Workflow.Bussiness.Concrete
             return work;
         }
 
+        public List<Work> GetWorksWithPagination(out int totalPage, int userId, int activePage=1)
+        {
+            var works = _workDal.GetWorksWithPagination(out totalPage,activePage,userId);
+            return works;
+        }
+
         public void Update(Work entity)
         {
             _workDal.Update(entity);

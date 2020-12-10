@@ -1,0 +1,56 @@
+﻿@model List<GetWorkListAllModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@foreach (var item in Model)
+{
+    <div class="card mt-2">
+        <div class="card-header">
+            @item.Name
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><span class="text-danger">@item.Urgency.Description</span></h5>
+            <p class="card-text">@item.Description</p>
+
+            <p class="text-right">
+                @if (item.Reports.Count > 0)
+                {
+                    <a class="btn btn-light btn-sm" data-toggle="collapse" href="#collapseExample-@item.Id" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Raporlara Git <i class="fas fa-sort-down ml-2"></i> <span class="badge badge-dark ml-2">@item.Reports.Count</span>
+                    </a>
+                }
+                else
+                {
+                    <span class="lead font-weight-bold d-block font-italic p-2 text-left mb-2">Hiç Rapor Yazmamışsınız</span>
+                }
+            </p>
+            <div class="collapse" id="collapseExample-@item.Id">
+                <table class="table table-hover table-bordered table-sm">
+                    <tr>
+                        <th>Ad</th>
+                        <th>Tanım</th>
+                    </tr>
+                    @foreach (var report in item.Reports)
+                    {
+                        <tr>
+                            <td>@report.Description</td>
+                            <td>@report.Detail</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<nav class="mt-4 float-right" aria-label="Page navigation example">
+    <ul class="pagination pagination-sm">
+        @for (int i = 1; i <= (int)(ViewBag.TotalPage); i++)
+        {
+            <li class="page-item @(ViewBag.ActivePage==i?"active":"")"><a class="page-link" asp-action="Index" asp-route-activePage="@i">@i</a></li>
+        }
+
+    </ul>
+</nav>
+
+

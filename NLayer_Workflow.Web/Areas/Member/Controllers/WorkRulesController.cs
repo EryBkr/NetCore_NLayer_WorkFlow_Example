@@ -87,5 +87,13 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
             reportService.Update(new Report {Detail=model.Detail,Id=model.Id,Description=model.Description,WorkId=model.WorkId});
             return RedirectToAction("Index");
         }
+
+        public IActionResult CheckedWork(int id)
+        {
+            var work = workService.Get(i=>i.Id==id);
+            work.Status = true;
+            workService.Update(work);
+            return Json(null);
+        }
     }
 }

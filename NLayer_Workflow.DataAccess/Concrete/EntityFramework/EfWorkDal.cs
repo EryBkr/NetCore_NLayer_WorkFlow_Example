@@ -5,6 +5,7 @@ using NLayer_Workflow.DataAccess.Concrete.EntityFramework.Contexts;
 using NLayer_Workflow.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -64,6 +65,21 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
             {
                 var work = context.Works.Include(i => i.Urgency).FirstOrDefault(i => i.Status == false && i.Id == id); //Eager Loading işlemi yaptık
                 return work;
+            }
+        }
+
+        public List<Work> GetWorksWithPagination(out int totalPage,int activePage, int userId)
+        {
+            using (var context = new MyDataContext())
+            {
+                var works = context.Works.Include(i => i.Urgency).Include(i => i.Reports).Include(i => i.AppUser)
+                    .Where(i => i.Status == true && i.AppUserId == userId); //Eager Loading işlemi yaptık ve ilişkili olduğu tablolarla beraber getirdik
+
+                totalPage = (int)Math.Ceiling((double)works.Count() / 3);
+
+                works=works.OrderByDescending(i => i.CreatedDate).Skip((activePage - 1) * 3).Take(3);
+
+                return works.ToList();
             }
         }
     }
