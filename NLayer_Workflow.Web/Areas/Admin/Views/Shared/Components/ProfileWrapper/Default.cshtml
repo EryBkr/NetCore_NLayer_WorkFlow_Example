@@ -1,21 +1,32 @@
-﻿@model NLayer_Workflow.Entities.Concrete.AppUser
+﻿@model SideBarComponentModel
 @{
     var controllerName = this.ViewContext.RouteData.Values["controller"].ToString().ToLower();
 }
 
 <div class="border-right border-danger" id="sidebar-wrapper">
     <div class="sidebar-heading">
-        <img class="w-100 img-thumbnail" style="height:10rem!important;" src="~/img/@Model.Picture" alt="Alternate Text" />
-        <h4>@Model.Name <span class="badge badge-success ml-2"><small>Admin</small></span></h4>
+        <img class="w-100 img-thumbnail" style="height:10rem!important;" src="~/img/@Model.AppUser.Picture" alt="Alternate Text" />
+        <h4>@Model.AppUser.Name <span class="badge badge-success ml-2"><small>Admin</small></span></h4>
     </div>
     <div class="list-group list-group-flush">
-        <a asp-action="Index" asp-controller="Work" class="list-group-item list-group-item-action @(controllerName=="work"?"active":"")"><i class="fas fa-tasks mr-1"></i> Görev İşlemleri</a>
-        <a asp-action="Index" asp-controller="Urgency" class="list-group-item list-group-item-action  @(controllerName=="urgency"?"active":"")"><i class="fas fa-radiation-alt mr-1"></i> Aciliyet İşlemleri</a>
-        <a asp-action="Index" asp-controller="WorkRules" class="list-group-item list-group-item-action @(controllerName=="workrules"?"active":"")"><i class="fas fa-briefcase mr-1"></i> İş Emirleri</a>
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-chart-pie mr-2"></i>Grafikler</a>
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-chart-line mr-2"></i>İstatistikler</a>
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-bell mr-2"></i>Bildirimler</a>
-        <a asp-action="ProfileUpdate" asp-controller="Profile" class="list-group-item list-group-item-action @(controllerName=="profile"?"active":"")"><i class="fas fa-user mr-2"></i>Profil</a>
-        <a asp-area="" asp-action="LogOut" asp-controller="Home" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt mr-2"></i>Çıkış Yap</a>
+        <a asp-action="Index" asp-controller="Work" class="list-group-item list-group-item-action @(controllerName=="work"?"active":"")"><i class="fas fa-tasks mr-3"></i> Görev İşlemleri</a>
+        <a asp-action="Index" asp-controller="Urgency" class="list-group-item list-group-item-action  @(controllerName=="urgency"?"active":"")"><i class="fas fa-radiation-alt mr-3"></i> Aciliyet İşlemleri</a>
+        <a asp-action="Index" asp-controller="WorkRules" class="list-group-item list-group-item-action @(controllerName=="workrules"?"active":"")"><i class="fas fa-briefcase mr-3"></i> İş Emirleri</a>
+        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-chart-pie mr-3"></i>Grafikler</a>
+        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-chart-line mr-3"></i>İstatistikler</a>
+        <a asp-action="Index" asp-controller="Notification" class="list-group-item list-group-item-action position-relative @(controllerName=="notification"?"active":"")">
+            <i class="fas fa-bell mr-3"></i>
+            @if (Model.NotifyCount > 0)
+            {
+                <sub style="bottom:0.625rem!important;left:1.7rem!important;" class="position-absolute badge badge-info badge-pill">@Model.NotifyCount</sub>
+            }
+            else
+            {
+                <sub style="bottom:0.625rem!important;left:1.7rem!important;" class="position-absolute badge badge-secondary badge-pill">0</sub>
+            }
+            Bildirimler
+        </a>
+        <a asp-action="ProfileUpdate" asp-controller="Profile" class="list-group-item list-group-item-action @(controllerName=="profile"?"active":"")"><i class="fas fa-user mr-3"></i>Profil</a>
+        <a asp-area="" asp-action="LogOut" asp-controller="Home" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt mr-3"></i>Çıkış Yap</a>
     </div>
 </div>

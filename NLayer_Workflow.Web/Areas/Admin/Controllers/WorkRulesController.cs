@@ -17,13 +17,15 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         private readonly IWorkService workService;
         private readonly UserManager<AppUser> userManager;
         private readonly IFileService fileService;
+        private readonly INotificationService notificationService;
 
-        public WorkRulesController(IAppUserService appUserService, IWorkService workService, UserManager<AppUser> userManager, IFileService fileService)
+        public WorkRulesController(IAppUserService appUserService, IWorkService workService, UserManager<AppUser> userManager, IFileService fileService, INotificationService notificationService)
         {
             this.appUserService = appUserService;
             this.workService = workService;
             this.userManager = userManager;
             this.fileService = fileService;
+            this.notificationService = notificationService;
         }
 
         public IActionResult Index()
@@ -77,6 +79,13 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
             var work = workService.GetWorkDetailWithUrgency(WorkId);
             work.AppUserId = UserId;
             workService.Update(work);
+
+            notificationService.Add(new Notification 
+            {
+                AppUserId=UserId,
+                Description="Admin tarafından görev atandı",
+                IsRead=false
+            });
          
             return RedirectToAction("Index");
         }

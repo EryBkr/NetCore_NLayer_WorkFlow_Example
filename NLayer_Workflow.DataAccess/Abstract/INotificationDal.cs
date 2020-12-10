@@ -8,5 +8,6 @@ namespace NLayer_Workflow.DataAccess.Abstract
 {
     public interface INotificationDal : IEntityRepository<Notification> //Database ile iletişime geçecek soyut yapılarımızı oluşturduk
     {
+        List<Notification> GetIsNotRead(int userId);
     }
 }

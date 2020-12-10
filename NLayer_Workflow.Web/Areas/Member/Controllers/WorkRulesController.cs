@@ -15,12 +15,14 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
         private readonly IWorkService workService;
         private readonly UserManager<AppUser> userManager;
         private readonly IReportService reportService;
+        private readonly INotificationService notificationService;
 
-        public WorkRulesController(IWorkService workService, UserManager<AppUser> userManager,IReportService reportService)
+        public WorkRulesController(IWorkService workService, UserManager<AppUser> userManager,IReportService reportService, INotificationService notificationService)
         {
             this.workService = workService;
             this.userManager = userManager;
             this.reportService = reportService;
+            this.notificationService = notificationService;
         }
 
         public async Task<IActionResult> Index()
@@ -58,10 +60,23 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddReport(AddReportViewModel model)
+        public async Task<IActionResult> AddReport(AddReportViewModel model)
         {
             var report = new Report { WorkId = model.WorkId, Detail = model.Detail, Description = model.Description };
             reportService.Add(report);
+
+            var adminUserList =await userManager.GetUsersInRoleAsync("Admin"); //Adminleri aldık
+            var activeUser = await userManager.FindByNameAsync(User.Identity.Name); //Kullanıcıyı aldık
+
+            foreach (var admin in adminUserList)
+            {
+                notificationService.Add(new Notification 
+                {
+                    Description = $"{activeUser.Name} {activeUser.Surname} yeni bir repor yazdı",
+                    IsRead=false,
+                    AppUserId=admin.Id
+                });
+            }
 
             return RedirectToAction("Index");
         }
@@ -88,11 +103,25 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult CheckedWork(int id)
+        public async Task<IActionResult> CheckedWork(int id)
         {
             var work = workService.Get(i=>i.Id==id);
             work.Status = true;
             workService.Update(work);
+
+            var adminUserList = await userManager.GetUsersInRoleAsync("Admin"); //Adminleri aldık
+            var activeUser = await userManager.FindByNameAsync(User.Identity.Name); //Kullanıcıyı aldık
+
+            foreach (var admin in adminUserList)
+            {
+                notificationService.Add(new Notification
+                {
+                    Description = $"{activeUser.Name} {activeUser.Surname} görevini tamamladı",
+                    IsRead = false,
+                    AppUserId = admin.Id
+                });
+            }
+
             return Json(null);
         }
     }

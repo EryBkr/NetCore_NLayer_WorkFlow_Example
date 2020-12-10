@@ -27,6 +27,9 @@ namespace NLayer_Workflow.Bussiness.Extensions.DIResolvers
             services.AddScoped<IAppUserDal, EfUserDal>();
 
             services.AddScoped<IFileService, FileService>();
+
+            services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<INotificationDal, EfNotificationDal>();
         }
     }
 }
