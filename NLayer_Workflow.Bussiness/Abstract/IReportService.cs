@@ -9,5 +9,7 @@ namespace NLayer_Workflow.Bussiness.Abstract
     public interface IReportService : IGenericService<Report>
     {
         Report GetWithWorkById(int id);
+        int GetUserReportCount(int userId);
+        int TotalReportsCount();
     }
 }

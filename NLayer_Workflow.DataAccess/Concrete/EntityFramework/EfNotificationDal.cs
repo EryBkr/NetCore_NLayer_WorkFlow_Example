@@ -19,5 +19,14 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
                 return notifies;
             }
         }
+
+        public int GetIsNotReadCount(int userId)
+        {
+            using (var dB=new MyDataContext())
+            {
+                var count = dB.Notifications.Where(i => i.AppUserId == userId && i.IsRead == false).Count();
+                return count;
+            }
+        }
     }
 }

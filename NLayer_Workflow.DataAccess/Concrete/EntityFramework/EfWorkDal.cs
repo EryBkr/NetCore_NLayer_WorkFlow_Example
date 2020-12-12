@@ -13,6 +13,15 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
 {
     public class EfWorkDal : EfEntityRepositoryBase<MyDataContext, Work>, IWorkDal //Generic yapımı ve interface'mi implemente ettim
     {
+        public int CompletedWorksCount()
+        {
+            using(var dB=new MyDataContext())
+            {
+                var count = dB.Works.Where(i => i.Status == true).Count();
+                return count;
+            }
+        }
+
         public List<Work> GetAllIncludedTable()
         {
             using (var context = new MyDataContext())
@@ -37,6 +46,15 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
             {
                 var works = context.Works.Include(i => i.Urgency).Where(i => i.Status == false).OrderByDescending(i => i.CreatedDate).ToList(); //Eager Loading işlemi yaptık
                 return works;
+            }
+        }
+
+        public int GetUserWorkCount(int userId)
+        {
+            using (var dB=new MyDataContext())
+            {
+                var workCount = dB.Works.Where(i => i.AppUserId == userId).Count();
+                return workCount;
             }
         }
 
@@ -80,6 +98,24 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
                 works=works.OrderByDescending(i => i.CreatedDate).Skip((activePage - 1) * 3).Take(3);
 
                 return works.ToList();
+            }
+        }
+
+        public int NeedCompleteUserWork(int userId)
+        {
+            using (var dB=new MyDataContext())
+            {
+                var count = dB.Works.Where(i => i.AppUserId == userId && i.Status == false).Count();
+                return count;
+            }
+        }
+
+        public int NotAttachWorks()
+        {
+            using(var dB=new MyDataContext())
+            {
+                var count = dB.Works.Where(i => i.AppUserId == null).Count();
+                return count;
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.DataAccess.Abstract;
 using NLayer_Workflow.Entities.Concrete;
+using NLayer_Workflow.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,6 +20,12 @@ namespace NLayer_Workflow.Bussiness.Concrete
         public List<AppUser> GetListWithoutAdmin()
         {
             var users = appUserDal.GetListWithoutAdmin();
+            return users;
+        }
+
+        public List<GetUsersCompletedWorkCount> GetUsersWorkCount(bool IsFinish)
+        {
+            var users = appUserDal.GetUsersWorkCount(IsFinish);
             return users;
         }
 

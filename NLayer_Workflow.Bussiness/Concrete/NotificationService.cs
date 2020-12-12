@@ -39,6 +39,12 @@ namespace NLayer_Workflow.Bussiness.Concrete
             return notifies;
         }
 
+        public int GetIsNotReadCount(int userId)
+        {
+            var count = notificationDal.GetIsNotReadCount(userId);
+            return count;
+        }
+
         public List<Notification> GetList(Expression<Func<Notification, bool>> filter = null)
         {
             var notifies = notificationDal.GetList(filter);

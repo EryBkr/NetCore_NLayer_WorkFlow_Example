@@ -24,6 +24,12 @@ namespace NLayer_Workflow.Bussiness.Concrete
             _workDal.Add(entity);
         }
 
+        public int CompletedWorksCount()
+        {
+            var count = _workDal.CompletedWorksCount();
+            return count;
+        }
+
         public void Delete(Work entity)
         {
             _workDal.Delete(entity);
@@ -59,6 +65,12 @@ namespace NLayer_Workflow.Bussiness.Concrete
             return works;
         }
 
+        public int GetUserWorkCount(int userId)
+        {
+            var count = _workDal.GetUserWorkCount(userId);
+            return count;
+        }
+
         public Work GetWithReportsById(int id)
         {
             var work = _workDal.GetWithReportsById(id);
@@ -81,6 +93,18 @@ namespace NLayer_Workflow.Bussiness.Concrete
         {
             var works = _workDal.GetWorksWithPagination(out totalPage,activePage,userId);
             return works;
+        }
+
+        public int NeedCompleteUserWork(int userId)
+        {
+            var count = _workDal.NeedCompleteUserWork(userId);
+            return count;
+        }
+
+        public int NotAttachWorks()
+        {
+            var count = _workDal.NotAttachWorks();
+            return count;
         }
 
         public void Update(Work entity)

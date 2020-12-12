@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div id="piechart-1" style="height:600px;"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="piechart-2" style="height:600px;"></div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> @*Google Chart Added*@
+
+    <script type="text/javascript">
+
+        var completedWork = [["Personel Adı", "Görev Sayısı"]];
+
+        $.ajax({
+            type: "get",
+            url: "/Admin/Graphs/CompletedWorkCount",
+            async:false,
+            success: function (data) {
+                var object = jQuery.parseJSON(data);
+
+                $.each(object, function (index, value) {
+                    completedWork.push([index, value]);
+                });
+            }
+        });
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable(completedWork);
+
+            var options = {
+                title: 'En Çok İş Tamamlayan personel',
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart-1'));
+
+            chart.draw(data, options);
+        }
+
+        var works = [["Personel Adı", "Görev Sayısı"]];
+
+        $.ajax({
+            type: "get",
+            url: "/Admin/Graphs/WorkCount",
+            async: false,
+            success: function (data) {
+                var object = jQuery.parseJSON(data);
+
+                $.each(object, function (index, value) {
+                    works.push([index, value]);
+                });
+            }
+        });
+
+        google.charts.setOnLoadCallback(drawChart2);
+        function drawChart2() {
+            var data = google.visualization.arrayToDataTable(works);
+
+            var options = {
+                title: 'En Çok işe sahip personel',
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart-2'));
+            chart.draw(data, options);
+        }
+    </script>
+
+}

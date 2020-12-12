@@ -1,5 +1,36 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model GetStatisticsModel
 
+<div class="row mt-3">
+    <div class="col-md-6">
+        <div class="card text-white bg-primary mb-3" style="max-width: 30rem;">
+            <div class="card-body">
+                <h4 class="card-title">Tamamlanan Görev Sayısı</h4>
+                <p class="card-text display-4">@Model.CompletedWorksCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card text-white bg-warning mb-3" style="max-width: 30rem;">
+            <div class="card-body">
+                <h4 class="card-title">Okunmamış Bildirim Sayısı</h4>
+                <p class="card-text display-4">@Model.IsNotReadNotifiesCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card text-white bg-secondary mb-3" style="max-width: 30rem;">
+            <div class="card-body">
+                <h4 class="card-title">Atanmamış Görev Sayısı</h4>
+                <p class="card-text display-4">@Model.NotAttachWorkCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+            <div class="card-body">
+                <h4 class="card-title">Toplam İş Sayısı</h4>
+                <p class="card-text display-4">@Model.TotalReportCount</p>
+            </div>
+        </div>
+    </div>
+</div>

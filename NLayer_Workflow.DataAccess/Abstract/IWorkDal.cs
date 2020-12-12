@@ -15,5 +15,9 @@ namespace NLayer_Workflow.DataAccess.Abstract
         List<Work> GetWithUser(int userId);
         Work GetWithReportsById(int id);
         List<Work> GetWorksWithPagination(out int totalPage, int activePage,int userId);
+        int GetUserWorkCount(int userId);
+        int NeedCompleteUserWork(int userId);
+        int NotAttachWorks();
+        int CompletedWorksCount();
     }
 }

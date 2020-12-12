@@ -1,7 +1,9 @@
-﻿using NLayer_Workflow.Core.DataAccess.EntityFramework;
+﻿using Microsoft.EntityFrameworkCore;
+using NLayer_Workflow.Core.DataAccess.EntityFramework;
 using NLayer_Workflow.DataAccess.Abstract;
 using NLayer_Workflow.DataAccess.Concrete.EntityFramework.Contexts;
 using NLayer_Workflow.Entities.Concrete;
+using NLayer_Workflow.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,15 +45,22 @@ namespace NLayer_Workflow.DataAccess.Concrete.EntityFramework
                     totalPage = (int)Math.Ceiling((double)users.Count() / 3); //toplam sayfa değerini search sonrası aldık
 
                 } 
-                   
-
-                
-
                  users=users.Skip((activePage - 1) * 3).Take(3); //Pagination
              
                 return users.ToList();
             }
 
+        }
+
+        public List<GetUsersCompletedWorkCount> GetUsersWorkCount(bool IsFinish) //Çoktan aza doğru en çok iş alan kullanıcıların sayısı (parametreye göre bitiren ya da sadece iş alanlar olabilir)
+         {
+            using(var dB=new MyDataContext())
+            {
+                var users = dB.Users.Include(i => i.Works.Where(i => i.Status == IsFinish)).OrderByDescending(i=>i.Works.Count).Take(5).Select(i=> new GetUsersCompletedWorkCount {UserName=i.UserName,CompletedWorkCount=i.Works.Count}).ToList();
+
+                return users;
+
+            }
         }
     }
 }

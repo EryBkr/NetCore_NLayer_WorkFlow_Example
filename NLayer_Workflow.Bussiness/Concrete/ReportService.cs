@@ -40,10 +40,22 @@ namespace NLayer_Workflow.Bussiness.Concrete
             return reports;
         }
 
+        public int GetUserReportCount(int userId)
+        {
+            var count = _reportDal.GetUserReportCount(userId);
+            return count;
+        }
+
         public Report GetWithWorkById(int id)
         {
             var report = _reportDal.GetWithWorkById(id);
             return report;
+        }
+
+        public int TotalReportsCount()
+        {
+            var count = _reportDal.TotalReportsCount();
+            return count;
         }
 
         public void Update(Report entity)
