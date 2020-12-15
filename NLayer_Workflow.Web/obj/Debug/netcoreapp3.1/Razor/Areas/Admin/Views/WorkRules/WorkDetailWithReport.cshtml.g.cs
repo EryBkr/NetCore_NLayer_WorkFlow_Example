@@ -19,8 +19,43 @@ using NLayer_Workflow.Web.Areas.Admin.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.UrgencyDTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.AppUserDTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.NotificationDTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.ReportDTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.WorkDTO;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1ccd3dd1fe76818e041ffe73c6e33b058ed00c3c", @"/Areas/Admin/Views/WorkRules/WorkDetailWithReport.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"32c2ddf964ecedc98873f9535bc77f42996cf847", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e08b3e37fee97bcafaf8f715dd99ba742942dc0", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_WorkRules_WorkDetailWithReport : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<NLayer_Workflow.Entities.Concrete.Work>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("target", new global::Microsoft.AspNetCore.Html.HtmlString("_blank"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -71,7 +106,7 @@ using NLayer_Workflow.Web.Areas.Admin.Models;
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1ccd3dd1fe76818e041ffe73c6e33b058ed00c3c5432", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1ccd3dd1fe76818e041ffe73c6e33b058ed00c3c6638", async() => {
                 WriteLiteral("<i class=\"far fa-file-excel mr-2\"></i>Excel");
             }
             );
@@ -104,7 +139,7 @@ using NLayer_Workflow.Web.Areas.Admin.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1ccd3dd1fe76818e041ffe73c6e33b058ed00c3c7889", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1ccd3dd1fe76818e041ffe73c6e33b058ed00c3c9095", async() => {
                 WriteLiteral("<i class=\"far fa-file-pdf mr-2\"></i>PDF");
             }
             );

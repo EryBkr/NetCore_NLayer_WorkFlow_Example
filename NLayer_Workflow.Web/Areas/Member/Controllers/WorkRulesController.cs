@@ -1,68 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Entities.Concrete;
-using NLayer_Workflow.Web.Areas.Member.Models;
+using NLayer_Workflow.Entities.DTO.ReportDTO;
+using NLayer_Workflow.Entities.DTO.WorkDTO;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Areas.Member.Controllers
 {
-    public class WorkRulesController : BaseController
+    public class WorkRulesController : BaseMemberIdentityController
     {
         private readonly IWorkService workService;
-        private readonly UserManager<AppUser> userManager;
         private readonly IReportService reportService;
         private readonly INotificationService notificationService;
+        private readonly IMapper mapper;
 
-        public WorkRulesController(IWorkService workService, UserManager<AppUser> userManager,IReportService reportService, INotificationService notificationService)
+        public WorkRulesController(IWorkService workService, UserManager<AppUser> userManager,IReportService reportService, INotificationService notificationService, IMapper mapper):base(userManager)
         {
             this.workService = workService;
-            this.userManager = userManager;
             this.reportService = reportService;
             this.notificationService = notificationService;
+            this.mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
         {
-            var userName = User.Identity.Name;
-            var user =await userManager.FindByNameAsync(userName);
+            var user = await GetLogInUser();
             var id = user.Id;
             var works = workService.GetAllIncludedTable(i => i.AppUserId == id && !i.Status);
-            var models = new List<GetWorkListAllModel>();
-            foreach (var item in works)
-            {
-                models.Add(new GetWorkListAllModel
-                {
-                    Id = item.Id,
-                    AppUser = item.AppUser,
-                    CreatedDate = item.CreatedDate,
-                    Description = item.Description,
-                    Name = item.Name,
-                    Reports = item.Reports,
-                    Urgency = item.Urgency
-                });
-
-            }
-
-            return View(models);
+            var worksModel = mapper.Map<List<WorkIncludedListDto>>(works);
+            
+            return View(worksModel);
         }
 
         [HttpGet]
         public IActionResult AddReport(int id)
         {
             var work = workService.Get(i=>i.Id==id);
-            var model = new AddReportViewModel { WorkId = work.Id,WorkName=work.Name };
+            var model = mapper.Map<ReportAddDto>(work);
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddReport(AddReportViewModel model)
+        public async Task<IActionResult> AddReport(ReportAddDto model)
         {
-            var report = new Report { WorkId = model.WorkId, Detail = model.Detail, Description = model.Description };
+            var report = mapper.Map<Report>(model);
             reportService.Add(report);
 
             var adminUserList =await userManager.GetUsersInRoleAsync("Admin"); //Adminleri aldık
@@ -85,21 +71,16 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
         public IActionResult UpdateReport(int id)
         {
             var report = reportService.GetWithWorkById(id);
-            var model = new UpdateReportViewModel();
-
-            model.Id = report.Id;
-            model.Description = report.Description;
-            model.Detail = report.Detail;
-            model.WorkId = report.WorkId;
-            
+            var model = mapper.Map<ReportUpdatetDto>(report);
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult UpdateReport(UpdateReportViewModel model)
+        public IActionResult UpdateReport(ReportUpdatetDto model)
         {
-            reportService.Update(new Report {Detail=model.Detail,Id=model.Id,Description=model.Description,WorkId=model.WorkId});
+            var report = mapper.Map<Report>(model);
+            reportService.Update(report);
             return RedirectToAction("Index");
         }
 

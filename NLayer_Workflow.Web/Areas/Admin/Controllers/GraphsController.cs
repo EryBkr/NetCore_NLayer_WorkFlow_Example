@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Web.Areas.Admin.Models;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
-    public class GraphsController : BaseController
+    public class GraphsController : BaseAdminController
     {
         private readonly IAppUserService appUserService;
 

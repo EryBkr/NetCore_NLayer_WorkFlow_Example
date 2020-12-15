@@ -1,45 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NLayer_Workflow.Entities.Concrete;
-using NLayer_Workflow.Web.Areas.Member.Models;
+using NLayer_Workflow.Entities.DTO.AppUserDTO;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Areas.Member.Controllers
 {
-    public class ProfileController : BaseController
+    public class ProfileController : BaseMemberIdentityController
     {
-        private readonly UserManager<AppUser> userManager;
+        private readonly IMapper mapper;
 
-        public ProfileController(UserManager<AppUser> userManager)
+        public ProfileController(UserManager<AppUser> userManager, IMapper mapper):base(userManager)
         {
-            this.userManager = userManager;
+            this.mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> ProfileUpdate()
         {
-            var admin = await userManager.FindByNameAsync(User.Identity.Name);
-
-            var model = new UpdateMemberViewModel()
-            {
-                Id = admin.Id,
-                Name = admin.Name,
-                Email = admin.Email,
-                Surname = admin.Surname,
-                Picture = admin.Picture,
-            };
-
+            var admin = await GetLogInUser();
+            var model = mapper.Map<UserUpdateDto>(admin);
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ProfileUpdate(UpdateMemberViewModel model, IFormFile Resim)
+        public async Task<IActionResult> ProfileUpdate(UserUpdateDto model, IFormFile Resim)
         {
             var user = userManager.Users.FirstOrDefault(i => i.Id == model.Id);
             if (Resim != null)
@@ -66,10 +58,7 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
                 }
                 else
                 {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
+                    ModelStateAddErrors(result.Errors);
                 }
             }
             return RedirectToAction("");

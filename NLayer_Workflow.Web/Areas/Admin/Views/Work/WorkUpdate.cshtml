@@ -1,4 +1,4 @@
-﻿@model WorkUpdateModel
+﻿@model WorkUpdateDto
 @{
     ViewData["Title"] = "WorkUpdate";
 }
@@ -18,7 +18,7 @@
     <div class="form-group">
         <label>Urgency Seçiniz</label>
         <span class="text-danger" asp-validation-for="UrgencyId"></span>
-        <select asp-for="UrgencyId" class="form-control" asp-items="@Model.UrgencyList">
+        <select asp-for="UrgencyId" class="form-control" asp-items="@ViewBag.Urgencies">
         </select>
     </div>
     <button type="submit" class="btn btn-info btn-sm"><i class="far fa-save mr-2"></i>Save</button>

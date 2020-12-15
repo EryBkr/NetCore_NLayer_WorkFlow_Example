@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Entities.Concrete;
-using NLayer_Workflow.Web.Models;
+using NLayer_Workflow.Entities.DTO.AppUserDTO;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseIdentityController
     {
-        private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
+        private readonly IMapper mapper;
 
-        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager, IMapper mapper):base(userManager)
         {
-            this.userManager = userManager;
             this.signInManager = signInManager;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -30,7 +28,7 @@ namespace NLayer_Workflow.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LogIn(LoginModel model)
+        public async Task<IActionResult> LogIn(UserSignInDto model)
         {
             var user=await userManager.FindByNameAsync(model.UserName);
             if (user!=null)
@@ -61,14 +59,9 @@ namespace NLayer_Workflow.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(AppUserAddViewModel model) //Kullanıcı kayıt olunca otomatik olarak Member olarak atanacak
+        public async Task<IActionResult> Register(UserAddDto model) //Kullanıcı kayıt olunca otomatik olarak Member olarak atanacak
         {
-            var user = new AppUser {
-                UserName = model.UserName,
-                Email = model.Email,
-                Name = model.Name,
-                Surname = model.Surname
-            };
+            var user = mapper.Map<AppUser>(model);
             var result=await userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
@@ -79,20 +72,12 @@ namespace NLayer_Workflow.Web.Controllers
                 }
                 else
                 {
-                    foreach (var item in roleResult.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
+                    ModelStateAddErrors(result.Errors); //Hata ekleme mekanizmasınız merkezi hale getirdik
                 }
             }
             else
             {
-                foreach (var item in result.Errors)
-                {
-                    ModelState.AddModelError("", item.Description);
-                }
-                
-
+                ModelStateAddErrors(result.Errors);
             }
             return View(model);
         }
@@ -101,6 +86,29 @@ namespace NLayer_Workflow.Web.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("LogIn");
+        }
+
+        //Custom Status Code Page
+        public IActionResult StatusCode(int? code)
+        {
+            if (code==404)
+            {
+                ViewBag.Code = code;
+                ViewBag.Message = "Sayfa bulunamadı";
+            }
+            
+            return View();
+        }
+
+        //Global olarak hatayı ele aldık
+        public IActionResult Error()
+        {
+            var exceptionHandlerPathFeature =
+        HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+
+            ViewBag.Path=exceptionHandlerPathFeature.Path;
+            ViewBag.Message = exceptionHandlerPathFeature.Error.Message;
+            return View();
         }
     }
 }

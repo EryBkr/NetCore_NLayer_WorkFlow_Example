@@ -1,9 +1,9 @@
-﻿@model UpdateAdminViewModel
+﻿@model UserUpdateDto
 @{
     ViewData["Title"] = "ProfileUpdate";
 }
 
-<form asp-action="ProfileUpdate" class="w-75 mx-auto p-3" method="post" enctype="multipart/form-data">
+<form asp-controller="Profile" asp-action="ProfileUpdate" class="w-75 mx-auto p-3" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label asp-for="Name"></label>

@@ -19,8 +19,43 @@ using NLayer_Workflow.Web.Areas.Admin.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.UrgencyDTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.AppUserDTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.NotificationDTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.ReportDTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\Areas\Admin\Views\_ViewImports.cshtml"
+using NLayer_Workflow.Entities.DTO.WorkDTO;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"df7911d0ce82a114b554afec121f56268d0844c9", @"/Areas/Admin/Views/Shared/Partial_Users.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"32c2ddf964ecedc98873f9535bc77f42996cf847", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e08b3e37fee97bcafaf8f715dd99ba742942dc0", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Shared_Partial_Users : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PaginationListUserModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("w-100 img-fluid"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -71,7 +106,7 @@ using NLayer_Workflow.Web.Areas.Admin.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                <div class=\"card mb-3\">\r\n                    <div class=\"row no-gutters\">\r\n                        <div class=\"col-md-4\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "df7911d0ce82a114b554afec121f56268d0844c95635", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "df7911d0ce82a114b554afec121f56268d0844c96841", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -104,7 +139,7 @@ AddHtmlAttributeValue("", 404, item.Picture, 404, 13, false);
 #line hidden
 #nullable disable
             WriteLiteral("</h5>\r\n                                <p class=\"card-text\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("getWorksAppUserId", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "df7911d0ce82a114b554afec121f56268d0844c97887", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("getWorksAppUserId", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "df7911d0ce82a114b554afec121f56268d0844c99093", async() => {
             }
             );
             __NLayer_Workflow_Web_TagHelpers_WorkUserIdTagHelper = CreateTagHelper<global::NLayer_Workflow.Web.TagHelpers.WorkUserIdTagHelper>();
@@ -133,7 +168,7 @@ __NLayer_Workflow_Web_TagHelpers_WorkUserIdTagHelper.UserId = item.Id;
 #line hidden
 #nullable disable
             WriteLiteral("</small></p>\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "df7911d0ce82a114b554afec121f56268d0844c99877", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "df7911d0ce82a114b554afec121f56268d0844c911083", async() => {
                 WriteLiteral("<i class=\"fas fa-plus mr-2\"></i>Görevlendir");
             }
             );

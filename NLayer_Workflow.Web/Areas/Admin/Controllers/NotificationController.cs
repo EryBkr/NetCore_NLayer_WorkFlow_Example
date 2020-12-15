@@ -1,30 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Entities.Concrete;
+using NLayer_Workflow.Entities.DTO.NotificationDTO;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
-    public class NotificationController : BaseController
+    public class NotificationController : BaseAdminIdentityController
     {
         private readonly INotificationService notificationService;
-        private readonly UserManager<AppUser> userManager;
+        private readonly IMapper mapper;
 
-        public NotificationController(INotificationService notificationService, UserManager<AppUser> userManager)
+        public NotificationController(INotificationService notificationService, UserManager<AppUser> userManager, IMapper mapper):base(userManager)
         {
             this.notificationService = notificationService;
-            this.userManager = userManager;
+            this.mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
         {
-            var user = await userManager.FindByNameAsync(User.Identity.Name);
+            var user = await GetLogInUser();
             var notifies = notificationService.GetList(i => i.AppUserId == user.Id);
-            return View(notifies);
+            var modelNotifies = mapper.Map<List<NotificationListDto>>(notifies);
+            return View(modelNotifies);
         }
 
         public IActionResult Read(int id)

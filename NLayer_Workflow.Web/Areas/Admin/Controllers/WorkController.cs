@@ -1,44 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Entities.Concrete;
-using NLayer_Workflow.Web.Areas.Admin.Models;
+using NLayer_Workflow.Entities.DTO.WorkDTO;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
-    public class WorkController : BaseController
+    public class WorkController : BaseAdminController
     {
         private readonly IWorkService _workService;
         private readonly IUrgencyService _urgencyService;
+        private readonly IMapper mapper;
 
-        public WorkController(IWorkService _workService, IUrgencyService _urgencyService)
+        public WorkController(IWorkService _workService, IUrgencyService _urgencyService, IMapper mapper)
         {
             this._workService = _workService;
             this._urgencyService = _urgencyService;
+            this.mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            var works = _workService.GetListWorkWithUrgency().Select(i=>new WorkListModel{Id=i.Id,CreatedDate=i.CreatedDate,Description=i.Description,Name=i.Name,Status=i.Status,Urgency=i.Urgency,UrgencyId=i.UrgencyId }).ToList();
+            var works = _workService.GetListWorkWithUrgency();
+            var worksModel = mapper.Map<List<WorkListDto>>(works);
 
-            return View(works);
+            return View(worksModel);
         }
 
+        [HttpGet]
         public IActionResult AddWork()
         {
             var urgencies=_urgencyService.GetList();
-            return View(new WorkAddViewModel {UrgencyList=new SelectList(urgencies,"Id","Description")});
+            ViewBag.Urgencies = new SelectList(urgencies, "Id", "Description");
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddWork(WorkAddViewModel model)
+        public IActionResult AddWork(WorkAddDto model)
         {
-            _workService.Add(new Work {Name=model.Name,Description=model.Description,UrgencyId=model.UrgencyId });
+            var work = mapper.Map<Work>(model);
+            _workService.Add(work);
             return RedirectToAction("Index");
         }
 
@@ -46,17 +51,18 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         {
             var work = _workService.Get(i=>i.Id==id);
             var urgencies = _urgencyService.GetList();
-
-            var workModel = new WorkUpdateModel { Id = work.Id, Description = work.Description, Name = work.Name, UrgencyId = work.UrgencyId,UrgencyList= new SelectList(urgencies, "Id", "Description",work.UrgencyId)}; //Son parametrede seçili olması gerek option ı verdik
+            var workModel = mapper.Map<WorkUpdateDto>(work);
+            ViewBag.Urgencies = new SelectList(urgencies, "Id", "Description", workModel.UrgencyId); //Son parametrede seçili olması gerek option'ı verdik
 
             return View(workModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult WorkUpdate(WorkUpdateModel model)
+        public IActionResult WorkUpdate(WorkUpdateDto model)
         {
-            _workService.Update(new Work {Id=model.Id,UrgencyId=model.UrgencyId,Description=model.Description,Name=model.Name});
+            var work = mapper.Map<Work>(model);
+            _workService.Update(work);
             return RedirectToAction("Index");
         }
 

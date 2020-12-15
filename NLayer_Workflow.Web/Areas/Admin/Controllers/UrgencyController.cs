@@ -1,56 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Entities.Concrete;
-using NLayer_Workflow.Web.Areas.Admin.Models;
+using NLayer_Workflow.Entities.DTO.UrgencyDTO;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
-  
-    public class UrgencyController : BaseController
+
+    public class UrgencyController : BaseAdminController
     {
         private readonly IUrgencyService _urgencyService;
+        private readonly IMapper mapper;
 
-        public UrgencyController(IUrgencyService _urgencyService)
+        public UrgencyController(IUrgencyService _urgencyService, IMapper mapper)
         {
             this._urgencyService = _urgencyService;
-           
+            this.mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            var urgencies = _urgencyService.GetList().Select(i=>new UrgencyListViewModel {Id=i.Id,Description=i.Description}).ToList();
-            return View(urgencies);
+            var urgencies = _urgencyService.GetList();
+            var urgenciesModel = mapper.Map<List<UrgencyListDto>>(urgencies);
+            return View(urgenciesModel);
         }
 
         public IActionResult AddUrgency()
         {
-            return View(new UrgencyAddViewModel());
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddUrgency(UrgencyAddViewModel model)
+        public IActionResult AddUrgency(UrgencyAddDto model)
         {
-             _urgencyService.Add(new Entities.Concrete.Urgency {Description=model.Description});
+             _urgencyService.Add(new Urgency {Description=model.Description});
             return RedirectToAction("Index");
         }
 
         public IActionResult UpdateUrgency(int id)
         {
             var urgency = _urgencyService.Get(i=>i.Id==id);
-            var model = new UrgencyUpdateViewModel { Id = urgency.Id, Description = urgency.Description };
+            var model = mapper.Map<UrgencyUpdateDto>(urgency);
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult UpdateUrgency(UrgencyUpdateViewModel model)
+        public IActionResult UpdateUrgency(UrgencyUpdateDto model)
         {
-            var urgency = new Urgency { Id = model.Id, Description = model.Description };
+            var urgency = mapper.Map<Urgency>(model);
             _urgencyService.Update(urgency);
             return RedirectToAction("Index");
         }

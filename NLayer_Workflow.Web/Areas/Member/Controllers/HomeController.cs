@@ -1,35 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Entities.Concrete;
 using NLayer_Workflow.Web.Areas.Member.Models;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Areas.Member.Controllers
 {
-   
-    public class HomeController : BaseController
+
+    public class HomeController : BaseMemberIdentityController
     {
         private readonly IReportService reportService;
-        private readonly UserManager<AppUser> userManager;
         private readonly IWorkService workService;
         private readonly INotificationService notificationService;
 
-        public HomeController(IReportService reportService, UserManager<AppUser> userManager, IWorkService workService, INotificationService notificationService)
+        public HomeController(IReportService reportService, UserManager<AppUser> userManager, IWorkService workService, INotificationService notificationService):base(userManager)
         {
             this.reportService = reportService;
-            this.userManager = userManager;
             this.workService = workService;
             this.notificationService = notificationService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var userName = User.Identity.Name;
-            var user = await userManager.FindByNameAsync(userName);
+            var user = await GetLogInUser();
 
             var count = reportService.GetUserReportCount(user.Id);
             var workCount = workService.GetUserWorkCount(user.Id);

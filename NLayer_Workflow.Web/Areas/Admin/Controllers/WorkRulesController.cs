@@ -1,77 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Entities.Concrete;
+using NLayer_Workflow.Entities.DTO.AppUserDTO;
+using NLayer_Workflow.Entities.DTO.WorkDTO;
 using NLayer_Workflow.Web.Areas.Admin.Models;
+using NLayer_Workflow.Web.BaseControllers;
 
 namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
-    public class WorkRulesController : BaseController
+    public class WorkRulesController : BaseAdminIdentityController
     {
         private readonly IAppUserService appUserService;
         private readonly IWorkService workService;
-        private readonly UserManager<AppUser> userManager;
         private readonly IFileService fileService;
         private readonly INotificationService notificationService;
+        private readonly IMapper mapper;
 
-        public WorkRulesController(IAppUserService appUserService, IWorkService workService, UserManager<AppUser> userManager, IFileService fileService, INotificationService notificationService)
+        public WorkRulesController(IAppUserService appUserService, IWorkService workService, UserManager<AppUser> userManager, IFileService fileService, INotificationService notificationService, IMapper mapper):base(userManager)
         {
             this.appUserService = appUserService;
             this.workService = workService;
-            this.userManager = userManager;
             this.fileService = fileService;
             this.notificationService = notificationService;
+            this.mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            var works = workService.GetAllIncludedTable().Select(i=>new GetWorkAllListModel 
-            {
-                Id=i.Id,
-                AppUser=i.AppUser,
-                CreatedDate=i.CreatedDate,
-                Description=i.Description,
-                Name=i.Name,
-                Reports=i.Reports,
-                 Urgency=i.Urgency
-            }).ToList();
-
-            return View(works);
+            var works = workService.GetAllIncludedTable();
+            var worksModel = mapper.Map<List<WorkIncludedListDto>>(works);
+            return View(worksModel);
         }
 
         public IActionResult WorkDetail(int id)
         {
             var work = workService.GetWorkDetailWithUrgency(id);
-            
-            var model = new WorkDetail()
-            {
-                Id=work.Id,
-                Description=work.Description,
-                CreatedDate=work.CreatedDate,
-                Name=work.Name,
-                UrgencyDescription=work.Urgency.Description
-            };
-            return View(model);
+            var workModel = mapper.Map<WorkDetailDto>(work);
+            return View(workModel);
         }
 
         [HttpGet]
-        public IActionResult UserToWork(UserToWorkModel model)
+        public IActionResult UserToWork(UserWorkAddDto model)
         {
-            var user=userManager.Users.FirstOrDefault(i => i.Id == model.UserId);
+            var user = userManager.Users.FirstOrDefault(i => i.Id == model.UserId);
             var work = workService.GetWorkDetailWithUrgency(model.WorkId);
 
-            var userToWorkModel = new UserToWorkListModel();
+            var userToWorkModel = new UserWorkListDto();
             userToWorkModel.AppUser = user;
             userToWorkModel.Work = work;
 
             return View(userToWorkModel);
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult UserToWork(int UserId,int WorkId)
