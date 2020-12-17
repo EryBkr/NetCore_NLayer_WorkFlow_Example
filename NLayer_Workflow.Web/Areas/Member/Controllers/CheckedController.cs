@@ -13,9 +13,9 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
     public class CheckedController : BaseMemberIdentityController
     {
         private readonly IWorkService workService;
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
 
-        public CheckedController(IWorkService workService, UserManager<AppUser> userManager, IMapper mapper):base(userManager)
+        public CheckedController(IWorkService workService, UserManager<AppUser> userManager, IAutoMapperService mapper):base(userManager)
         {
             this.workService = workService;
             this.mapper = mapper;
@@ -26,7 +26,7 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
             var user = await GetLogInUser();
             int totalPage;
             var works = workService.GetWorksWithPagination(out totalPage,user.Id, activePage);
-            var worksModel = mapper.Map<List<WorkIncludedListDto>>(works);
+            var worksModel = mapper.Mapper.Map<List<WorkIncludedListDto>>(works);
             ViewBag.TotalPage = totalPage;
             ViewBag.ActivePage = activePage;
             return View(worksModel);

@@ -3,6 +3,8 @@ using AutoMapper;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NLayer_Workflow.Bussiness.Abstract;
+using NLayer_Workflow.Core.Bussiness.CustomLogger;
 using NLayer_Workflow.Entities.Concrete;
 using NLayer_Workflow.Entities.DTO.AppUserDTO;
 using NLayer_Workflow.Web.BaseControllers;
@@ -12,12 +14,14 @@ namespace NLayer_Workflow.Web.Controllers
     public class HomeController : BaseIdentityController
     {
         private readonly SignInManager<AppUser> signInManager;
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
+        private readonly ICustomLogger customLogger;
 
-        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager, IMapper mapper):base(userManager)
+        public HomeController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager, IAutoMapperService mapper, ICustomLogger customLogger) :base(userManager)
         {
             this.signInManager = signInManager;
             this.mapper = mapper;
+            this.customLogger = customLogger;
         }
 
         [HttpGet]
@@ -61,7 +65,7 @@ namespace NLayer_Workflow.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(UserAddDto model) //Kullanıcı kayıt olunca otomatik olarak Member olarak atanacak
         {
-            var user = mapper.Map<AppUser>(model);
+            var user = mapper.Mapper.Map<AppUser>(model);
             var result=await userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
@@ -105,6 +109,9 @@ namespace NLayer_Workflow.Web.Controllers
         {
             var exceptionHandlerPathFeature =
         HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+
+            customLogger.Log($"Hatanın oluştuğu yer: {exceptionHandlerPathFeature.Path} \n Hata Mesajı:{exceptionHandlerPathFeature.Error.Message}\n " +
+                $"StackTrace:{exceptionHandlerPathFeature.Error.StackTrace}");
 
             ViewBag.Path=exceptionHandlerPathFeature.Path;
             ViewBag.Message = exceptionHandlerPathFeature.Error.Message;

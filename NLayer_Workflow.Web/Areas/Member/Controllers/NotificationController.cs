@@ -13,9 +13,9 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
     public class NotificationController : BaseMemberIdentityController
     {
         private readonly INotificationService notificationService;
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
 
-       public NotificationController(INotificationService notificationService, UserManager<AppUser> userManager, IMapper mapper):base(userManager)
+       public NotificationController(INotificationService notificationService, UserManager<AppUser> userManager, IAutoMapperService mapper):base(userManager)
         {
             this.notificationService = notificationService;
             this.mapper = mapper;
@@ -25,7 +25,7 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
         {
             var user = await GetLogInUser();
             var notifies = notificationService.GetList(i=>i.AppUserId==user.Id);
-            var modelNotifies = mapper.Map<List<NotificationListDto>>(notifies);
+            var modelNotifies = mapper.Mapper.Map<List<NotificationListDto>>(notifies);
             return View(modelNotifies);
         }
 

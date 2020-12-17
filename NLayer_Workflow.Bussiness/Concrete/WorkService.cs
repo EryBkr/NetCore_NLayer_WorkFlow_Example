@@ -1,4 +1,5 @@
 ﻿using NLayer_Workflow.Bussiness.Abstract;
+using NLayer_Workflow.Core.Bussiness.CustomLogger;
 using NLayer_Workflow.DataAccess.Abstract;
 using NLayer_Workflow.Entities.Concrete;
 using System;
@@ -14,7 +15,7 @@ namespace NLayer_Workflow.Bussiness.Concrete
 
         private readonly IWorkDal _workDal;
 
-        public WorkService(IWorkDal _workDal) //DB işlemlerimiz iş katmanında kontrolden geçtikten sonra gerçekleştirilecek.Dependency Injection yöntemi ile Context'e bağlı Interface lerimizi çağırıyoruz
+        public WorkService(IWorkDal _workDal,ICustomLogger customLogger) //DB işlemlerimiz iş katmanında kontrolden geçtikten sonra gerçekleştirilecek.Dependency Injection yöntemi ile Context'e bağlı Interface lerimizi çağırıyoruz
         {
             this._workDal = _workDal;
         }

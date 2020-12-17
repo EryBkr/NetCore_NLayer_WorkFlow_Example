@@ -16,9 +16,9 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
         private readonly IWorkService workService;
         private readonly IReportService reportService;
         private readonly INotificationService notificationService;
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
 
-        public WorkRulesController(IWorkService workService, UserManager<AppUser> userManager,IReportService reportService, INotificationService notificationService, IMapper mapper):base(userManager)
+        public WorkRulesController(IWorkService workService, UserManager<AppUser> userManager,IReportService reportService, INotificationService notificationService, IAutoMapperService mapper):base(userManager)
         {
             this.workService = workService;
             this.reportService = reportService;
@@ -31,7 +31,7 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
             var user = await GetLogInUser();
             var id = user.Id;
             var works = workService.GetAllIncludedTable(i => i.AppUserId == id && !i.Status);
-            var worksModel = mapper.Map<List<WorkIncludedListDto>>(works);
+            var worksModel = mapper.Mapper.Map<List<WorkIncludedListDto>>(works);
             
             return View(worksModel);
         }
@@ -40,7 +40,7 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
         public IActionResult AddReport(int id)
         {
             var work = workService.Get(i=>i.Id==id);
-            var model = mapper.Map<ReportAddDto>(work);
+            var model = mapper.Mapper.Map<ReportAddDto>(work);
             return View(model);
         }
 
@@ -48,7 +48,7 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddReport(ReportAddDto model)
         {
-            var report = mapper.Map<Report>(model);
+            var report = mapper.Mapper.Map<Report>(model);
             reportService.Add(report);
 
             var adminUserList =await userManager.GetUsersInRoleAsync("Admin"); //Adminleri aldık
@@ -71,7 +71,7 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
         public IActionResult UpdateReport(int id)
         {
             var report = reportService.GetWithWorkById(id);
-            var model = mapper.Map<ReportUpdatetDto>(report);
+            var model = mapper.Mapper.Map<ReportUpdatetDto>(report);
             return View(model);
         }
 
@@ -79,7 +79,7 @@ namespace NLayer_Workflow.Web.Areas.Member.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult UpdateReport(ReportUpdatetDto model)
         {
-            var report = mapper.Map<Report>(model);
+            var report = mapper.Mapper.Map<Report>(model);
             reportService.Update(report);
             return RedirectToAction("Index");
         }

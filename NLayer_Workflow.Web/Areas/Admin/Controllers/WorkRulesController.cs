@@ -19,9 +19,9 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         private readonly IWorkService workService;
         private readonly IFileService fileService;
         private readonly INotificationService notificationService;
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
 
-        public WorkRulesController(IAppUserService appUserService, IWorkService workService, UserManager<AppUser> userManager, IFileService fileService, INotificationService notificationService, IMapper mapper):base(userManager)
+        public WorkRulesController(IAppUserService appUserService, IWorkService workService, UserManager<AppUser> userManager, IFileService fileService, INotificationService notificationService, IAutoMapperService mapper):base(userManager)
         {
             this.appUserService = appUserService;
             this.workService = workService;
@@ -33,14 +33,14 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var works = workService.GetAllIncludedTable();
-            var worksModel = mapper.Map<List<WorkIncludedListDto>>(works);
+            var worksModel = mapper.Mapper.Map<List<WorkIncludedListDto>>(works);
             return View(worksModel);
         }
 
         public IActionResult WorkDetail(int id)
         {
             var work = workService.GetWorkDetailWithUrgency(id);
-            var workModel = mapper.Map<WorkDetailDto>(work);
+            var workModel = mapper.Mapper.Map<WorkDetailDto>(work);
             return View(workModel);
         }
 

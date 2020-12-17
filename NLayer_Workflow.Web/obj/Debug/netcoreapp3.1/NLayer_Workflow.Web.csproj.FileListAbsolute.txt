@@ -223,3 +223,5 @@ C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\NLayer_Workflow.Web.genruntimeconfig.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\StatusCode.cshtml.g.cs
 C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\bin\Debug\netcoreapp3.1\NLog.config
+C:\Users\Blackerback\OneDrive\Masaüstü\NLayer_Workflow\NLayer_Workflow.Web\bin\Debug\netcoreapp3.1\NLog.dll

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3kNLU9VLIVTdva5bltvtgf8skCFdU1de9mdmiq36dgoR8PLUFv/wxAYiHAb5g7F790MvJSw2kx9kWpwipKiVEA==",
+  "dgSpecHash": "r3gCd7xAeozvqvpErnXoGLv3+QZu6XcwIhFb8jBbNTi09bZLxHfmN1AMmVuDEa7/8htG2/iY3vGC9HGJB9F1Ug==",
   "success": true,
   "projectFilePath": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\NLayer_Workflow\\NLayer_Workflow.Web\\NLayer_Workflow.Web.csproj",
   "expectedPackageFiles": [
@@ -91,6 +91,9 @@
     "C:\\Users\\Blackerback\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Blackerback\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\Blackerback\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Blackerback\\.nuget\\packages\\nlog\\4.7.6\\nlog.4.7.6.nupkg.sha512",
+    "C:\\Users\\Blackerback\\.nuget\\packages\\nlog.config\\4.7.6\\nlog.config.4.7.6.nupkg.sha512",
+    "C:\\Users\\Blackerback\\.nuget\\packages\\nlog.schema\\4.7.6\\nlog.schema.4.7.6.nupkg.sha512",
     "C:\\Users\\Blackerback\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\Blackerback\\.nuget\\packages\\portable.bouncycastle\\1.8.8\\portable.bouncycastle.1.8.8.nupkg.sha512",
     "C:\\Users\\Blackerback\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

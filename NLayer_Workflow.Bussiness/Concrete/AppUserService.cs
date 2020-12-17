@@ -1,4 +1,5 @@
 ﻿using NLayer_Workflow.Bussiness.Abstract;
+using NLayer_Workflow.Core.Bussiness.CustomLogger;
 using NLayer_Workflow.DataAccess.Abstract;
 using NLayer_Workflow.Entities.Concrete;
 using NLayer_Workflow.Entities.DTO;
@@ -12,7 +13,7 @@ namespace NLayer_Workflow.Bussiness.Concrete
     {
         private readonly IAppUserDal appUserDal;
 
-        public AppUserService(IAppUserDal appUserDal)
+        public AppUserService(IAppUserDal appUserDal, ICustomLogger customLogger)
         {
             this.appUserDal = appUserDal;
         }

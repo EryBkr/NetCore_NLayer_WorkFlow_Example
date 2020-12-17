@@ -1,6 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Bussiness.Concrete;
+using NLayer_Workflow.Bussiness.CustomLogger.NLogLogger;
+using NLayer_Workflow.Bussiness.EntityMapper.AutoMapper;
+using NLayer_Workflow.Core.Bussiness.CustomLogger;
 using NLayer_Workflow.DataAccess.Abstract;
 using NLayer_Workflow.DataAccess.Concrete.EntityFramework;
 using System;
@@ -30,6 +33,10 @@ namespace NLayer_Workflow.Bussiness.Extensions.DIResolvers
 
             services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<INotificationDal, EfNotificationDal>();
+
+            services.AddTransient<ICustomLogger, NLogLogger>();
+
+            services.AddTransient<IAutoMapperService, AutoMapperService>();
         }
     }
 }

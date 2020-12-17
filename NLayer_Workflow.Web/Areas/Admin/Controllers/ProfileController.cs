@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NLayer_Workflow.Bussiness.Abstract;
 using NLayer_Workflow.Entities.Concrete;
 using NLayer_Workflow.Entities.DTO.AppUserDTO;
 using NLayer_Workflow.Web.BaseControllers;
@@ -14,9 +15,9 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
 {
     public class ProfileController : BaseAdminIdentityController
     {
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
 
-        public ProfileController(UserManager<AppUser> userManager, IMapper mapper):base(userManager)
+        public ProfileController(UserManager<AppUser> userManager, IAutoMapperService mapper):base(userManager)
         {
             this.mapper = mapper;
         }
@@ -25,7 +26,7 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         public async Task<IActionResult> ProfileUpdate()
         {
             var admin = await GetLogInUser();
-            var adminModel = mapper.Map<UserUpdateDto>(admin);
+            var adminModel = mapper.Mapper.Map<UserUpdateDto>(admin);
             
             return View(adminModel);
         }

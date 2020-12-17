@@ -36,8 +36,6 @@ namespace NLayer_Workflow.Web
             services.AddIdentityConfigurations();//Identity Custom olarak eklendi
             services.CookieConfigurations("/Home/LogIn"); //Cookie Ayarý ve login path bilgisi verildi
 
-            services.AddAutoMapper(typeof(Startup));//Dependency Injection kullanabilmek için tanýmladýk
-
             //Validasyon Kontrolü
             services.ValidatorConfigurations();
         }

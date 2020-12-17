@@ -5,13 +5,12 @@ using NLayer_Workflow.Entities.DTO.NotificationDTO;
 using NLayer_Workflow.Entities.DTO.ReportDTO;
 using NLayer_Workflow.Entities.DTO.UrgencyDTO;
 using NLayer_Workflow.Entities.DTO.WorkDTO;
-using NLayer_Workflow.Web.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NLayer_Workflow.Web.Mapper.AutoMapper
+namespace NLayer_Workflow.Bussiness.EntityMapper.AutoMapper
 {
     public class MapProfile:Profile
     {

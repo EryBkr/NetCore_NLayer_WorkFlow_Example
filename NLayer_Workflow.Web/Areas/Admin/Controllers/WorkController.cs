@@ -13,9 +13,9 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
     {
         private readonly IWorkService _workService;
         private readonly IUrgencyService _urgencyService;
-        private readonly IMapper mapper;
+        private readonly IAutoMapperService mapper;
 
-        public WorkController(IWorkService _workService, IUrgencyService _urgencyService, IMapper mapper)
+        public WorkController(IWorkService _workService, IUrgencyService _urgencyService, IAutoMapperService mapper)
         {
             this._workService = _workService;
             this._urgencyService = _urgencyService;
@@ -25,7 +25,7 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var works = _workService.GetListWorkWithUrgency();
-            var worksModel = mapper.Map<List<WorkListDto>>(works);
+            var worksModel = mapper.Mapper.Map<List<WorkListDto>>(works);
 
             return View(worksModel);
         }
@@ -42,7 +42,7 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddWork(WorkAddDto model)
         {
-            var work = mapper.Map<Work>(model);
+            var work = mapper.Mapper.Map<Work>(model);
             _workService.Add(work);
             return RedirectToAction("Index");
         }
@@ -51,7 +51,7 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         {
             var work = _workService.Get(i=>i.Id==id);
             var urgencies = _urgencyService.GetList();
-            var workModel = mapper.Map<WorkUpdateDto>(work);
+            var workModel = mapper.Mapper.Map<WorkUpdateDto>(work);
             ViewBag.Urgencies = new SelectList(urgencies, "Id", "Description", workModel.UrgencyId); //Son parametrede seçili olması gerek option'ı verdik
 
             return View(workModel);
@@ -61,7 +61,7 @@ namespace NLayer_Workflow.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult WorkUpdate(WorkUpdateDto model)
         {
-            var work = mapper.Map<Work>(model);
+            var work = mapper.Mapper.Map<Work>(model);
             _workService.Update(work);
             return RedirectToAction("Index");
         }
